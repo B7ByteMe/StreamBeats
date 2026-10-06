@@ -15,6 +15,7 @@ import 'package:streambeats/services/plugin/plugin_service.dart';
 import 'package:streambeats/src/rust/api/plugin/plugin_info.dart';
 import 'package:streambeats/src/rust/api/plugin/types.dart';
 import 'package:streambeats/utils/country_info.dart';
+import 'package:flutter/services.dart' show rootBundle;
 import 'package:http/http.dart' as http;
 import 'package:path_provider/path_provider.dart';
 
@@ -57,8 +58,10 @@ class PluginBootstrapProgress {
 }
 
 class PluginBootstrapService {
-  static const String hostedRepositoriesUrl =
-      'https://raw.githubusercontent.com/B7ByteMe/StreamBeats/main/repositories.json';
+  static const List<String> hostedRepositoriesUrls = [
+    'https://streambeats.pages.dev/repositories.json',
+    'https://raw.githubusercontent.com/B7ByteMe/StreamBeats/main/repositories.json',
+  ];
 
   static const int maxRetries = 3;
 
@@ -78,6 +81,11 @@ class PluginBootstrapService {
     await settingsDao.putSettingBool(
         SettingKeys.repositoriesBootstrapped, true);
     _bootstrapDone = true;
+  }
+
+  static Future<void> skipBootstrap(SettingsDAO settingsDao) async {
+    await _markDone(settingsDao);
+    log('Plugin bootstrap skipped by user.', name: 'PluginBootstrap');
   }
 
   static Future<void> ensureHostedRepositoriesPresent({
@@ -252,7 +260,8 @@ class PluginBootstrapService {
           name: 'PluginBootstrap');
     }
 
-    if (errors.isEmpty) {
+    final bootstrapSucceeded = errors.isEmpty || installedIds.isNotEmpty;
+    if (bootstrapSucceeded) {
       try {
         final loadStateService = PluginLoadStateService(settingsDao);
 
@@ -272,7 +281,8 @@ class PluginBootstrapService {
       }
 
       await _markDone(settingsDao);
-      log('Plugin bootstrap completed successfully.', name: 'PluginBootstrap');
+      log('Plugin bootstrap completed (installed: ${installedIds.length}).',
+          name: 'PluginBootstrap');
     } else {
       log('Plugin bootstrap completed with ${errors.length} error(s).',
           name: 'PluginBootstrap');
@@ -281,9 +291,9 @@ class PluginBootstrapService {
     onProgress(const PluginBootstrapProgress(100));
 
     return PluginBootstrapResult(
-      success: errors.isEmpty,
+      success: bootstrapSucceeded,
       errors: errors,
-      failureReason: errors.isEmpty
+      failureReason: bootstrapSucceeded
           ? PluginBootstrapFailureReason.none
           : PluginBootstrapFailureReason.setupFailed,
     );
@@ -582,25 +592,71 @@ class PluginBootstrapService {
   }
 
   static Future<List<_HostedRepoEntry>> _fetchHostedEntries() async {
-    final response = await http
-        .get(Uri.parse(hostedRepositoriesUrl))
-        .timeout(const Duration(seconds: 15));
-    if (response.statusCode != 200) {
-      throw Exception('HTTP ${response.statusCode}');
+    for (final url in hostedRepositoriesUrls) {
+      try {
+        final response = await http
+            .get(Uri.parse(url))
+            .timeout(const Duration(seconds: 12));
+        if (response.statusCode == 200 && response.body.trim().startsWith('{')) {
+          final json = jsonDecode(response.body) as Map<String, dynamic>;
+          final list = json['repositories'] as List<dynamic>?;
+          if (list != null) {
+            final entries = list
+                .map((e) =>
+                    _HostedRepoEntry.fromJson(Map<String, dynamic>.from(e as Map)))
+                .where((e) => e.url.isNotEmpty)
+                .toList();
+            if (entries.isNotEmpty) {
+              log('Fetched ${entries.length} repositories from $url',
+                  name: 'PluginBootstrap');
+              return entries;
+            }
+          }
+        }
+      } catch (e) {
+        log('Could not fetch repositories from $url: $e',
+            name: 'PluginBootstrap');
+      }
     }
-    final json = jsonDecode(response.body) as Map<String, dynamic>;
-    final list = json['repositories'] as List<dynamic>?;
-    if (list == null) throw const FormatException('Missing "repositories" key');
-    return list
-        .map((e) =>
-            _HostedRepoEntry.fromJson(Map<String, dynamic>.from(e as Map)))
-        .where((e) => e.url.isNotEmpty)
-        .toList();
+
+    // Asset bundle local fallback
+    try {
+      final bundledRaw =
+          await rootBundle.loadString('assets/repositories.json');
+      final json = jsonDecode(bundledRaw) as Map<String, dynamic>;
+      final list = json['repositories'] as List<dynamic>?;
+      if (list != null) {
+        final entries = list
+            .map((e) =>
+                _HostedRepoEntry.fromJson(Map<String, dynamic>.from(e as Map)))
+            .where((e) => e.url.isNotEmpty)
+            .toList();
+        if (entries.isNotEmpty) {
+          log('Loaded ${entries.length} repositories from bundled asset fallback',
+              name: 'PluginBootstrap');
+          return entries;
+        }
+      }
+    } catch (e) {
+      log('Bundled repositories fallback failed: $e',
+          name: 'PluginBootstrap');
+    }
+
+    // Default hardcoded fallback if all else fails
+    log('Using hardcoded bloom-factory default repository entry',
+        name: 'PluginBootstrap');
+    return const [
+      _HostedRepoEntry(
+        url:
+            'https://github.com/kojima-ui/bloom-factory/releases/latest/download/bex-factory.json',
+        install: true,
+      ),
+    ];
   }
 
   static Future<Uint8List> _downloadBytes(String url) async {
     final response =
-        await http.get(Uri.parse(url)).timeout(const Duration(seconds: 45));
+        await http.get(Uri.parse(url)).timeout(const Duration(seconds: 90));
     if (response.statusCode != 200) {
       throw Exception('HTTP ${response.statusCode}');
     }

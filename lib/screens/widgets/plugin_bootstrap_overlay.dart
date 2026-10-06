@@ -113,6 +113,12 @@ class _PluginBootstrapOverlayState extends State<PluginBootstrapOverlay>
     }
   }
 
+  Future<void> _skip() async {
+    final settingsDao = SettingsDAO(DBProvider.db);
+    await PluginBootstrapService.skipBootstrap(settingsDao);
+    if (mounted) widget.onComplete();
+  }
+
   Future<void> _exitApp() async {
     if (Platform.isAndroid || Platform.isIOS) {
       await SystemNavigator.pop();
@@ -143,10 +149,12 @@ class _PluginBootstrapOverlayState extends State<PluginBootstrapOverlay>
                         ? _NoInternetBody(
                             onRetry: _run,
                             onExit: _exitApp,
+                            onSkip: _skip,
                           )
                         : phase == _Phase.failed
                             ? _ErrorBody(
                                 onRetry: _run,
+                                onSkip: _skip,
                               )
                             : _SpinnerBody(
                                 pulse: _pulse,
@@ -273,9 +281,11 @@ class _SpinnerBody extends StatelessWidget {
 class _ErrorBody extends StatelessWidget {
   const _ErrorBody({
     required this.onRetry,
+    required this.onSkip,
   });
 
   final VoidCallback onRetry;
+  final VoidCallback onSkip;
 
   @override
   Widget build(BuildContext context) {
@@ -312,7 +322,7 @@ class _ErrorBody extends StatelessWidget {
             ),
             const SizedBox(height: 12),
             Text(
-              'Some plugins could not be installed right now. Retry to finish setup cleanly.',
+              'Some plugins could not be installed right now. You can retry or enter the app directly.',
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: Colors.white.withValues(alpha: 0.6),
@@ -342,6 +352,21 @@ class _ErrorBody extends StatelessWidget {
                 ),
               ),
             ),
+            const SizedBox(height: 10),
+            SizedBox(
+              width: double.infinity,
+              child: TextButton(
+                onPressed: onSkip,
+                child: Text(
+                  'Masuk ke Aplikasi (Lewati)',
+                  style: TextStyle(
+                    color: Colors.white.withValues(alpha: 0.7),
+                    fontWeight: FontWeight.w600,
+                    fontSize: 14,
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),
@@ -353,10 +378,12 @@ class _NoInternetBody extends StatelessWidget {
   const _NoInternetBody({
     required this.onRetry,
     required this.onExit,
+    required this.onSkip,
   });
 
   final VoidCallback onRetry;
   final VoidCallback onExit;
+  final VoidCallback onSkip;
 
   @override
   Widget build(BuildContext context) {
@@ -443,6 +470,21 @@ class _NoInternetBody extends StatelessWidget {
                   ),
                 ),
               ],
+            ),
+            const SizedBox(height: 10),
+            SizedBox(
+              width: double.infinity,
+              child: TextButton(
+                onPressed: onSkip,
+                child: Text(
+                  'Masuk ke Aplikasi (Lewati)',
+                  style: TextStyle(
+                    color: Colors.white.withValues(alpha: 0.7),
+                    fontWeight: FontWeight.w600,
+                    fontSize: 14,
+                  ),
+                ),
+              ),
             ),
           ],
         ),

@@ -33,13 +33,16 @@ class _GlobalEventListenerState extends State<GlobalEventListener> {
 
   String? _lastSnackbarMessage;
   DateTime _lastSnackbarTime = DateTime(2000);
-  static const _snackbarCooldown = Duration(seconds: 2);
+  static const _snackbarCooldown = Duration(seconds: 4);
 
   void _throttledSnackbar(String message) {
     final now = DateTime.now();
+    if (now.difference(_lastSnackbarTime) < _snackbarCooldown) {
+      return; // Suppress rapid-fire popups
+    }
     if (message == _lastSnackbarMessage &&
-        now.difference(_lastSnackbarTime) < _snackbarCooldown) {
-      return; // suppress duplicate within cooldown
+        now.difference(_lastSnackbarTime) < const Duration(seconds: 10)) {
+      return; // Suppress duplicate message within 10 seconds
     }
     _lastSnackbarMessage = message;
     _lastSnackbarTime = now;

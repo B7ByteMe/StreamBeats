@@ -128,6 +128,7 @@ flutter:
     - assets/icons/lazy_loading.png
     - assets/icons/streambeats_logo.png
     - assets/icons/loading.gif
+    - assets/repositories.json
     
   fonts:
     - family: Unageo
