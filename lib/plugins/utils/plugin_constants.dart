@@ -1,0 +1,1 @@
+const int CURRENT_MANIFEST_VERSION = 1;

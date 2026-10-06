@@ -1,0 +1,202 @@
+import '../frb_generated.dart';
+import 'downloader.dart';
+import 'downloader/types.dart';
+import 'package:flutter_rust_bridge/flutter_rust_bridge_for_generated.dart';
+import 'plugin/commands.dart';
+import 'plugin/events.dart';
+import 'plugin/manifest.dart';
+import 'plugin/models.dart';
+import 'plugin/plugin.dart';
+import 'plugin/plugin_info.dart';
+import 'plugin/types.dart';
+
+String greet({required String name}) =>
+    RustLib.instance.api.crateApiBridgeGreet(name: name);
+
+Stream<PluginManagerEvent> initPluginEventStream(
+        {required PluginManager manager}) =>
+    RustLib.instance.api.crateApiBridgeInitPluginEventStream(manager: manager);
+
+Future<DownloadManager> createDownloadManager(
+        {required PluginManager pluginManager,
+        required String stateDir,
+        required String tempDir,
+        required int maxConcurrentTasks}) =>
+    RustLib.instance.api.crateApiBridgeCreateDownloadManager(
+        pluginManager: pluginManager,
+        stateDir: stateDir,
+        tempDir: tempDir,
+        maxConcurrentTasks: maxConcurrentTasks);
+
+Stream<DownloadManagerEvent> initDownloadEventStream(
+        {required DownloadManager manager}) =>
+    RustLib.instance.api
+        .crateApiBridgeInitDownloadEventStream(manager: manager);
+
+Future<List<DownloadTaskSnapshot>> restoreDownloadTasks(
+        {required DownloadManager manager}) =>
+    RustLib.instance.api.crateApiBridgeRestoreDownloadTasks(manager: manager);
+
+Future<String> enqueueDownloadTask(
+        {required DownloadManager manager,
+        required EnqueueDownloadRequest request}) =>
+    RustLib.instance.api
+        .crateApiBridgeEnqueueDownloadTask(manager: manager, request: request);
+
+Future<List<DownloadTaskSnapshot>> getDownloadTaskSnapshots(
+        {required DownloadManager manager}) =>
+    RustLib.instance.api
+        .crateApiBridgeGetDownloadTaskSnapshots(manager: manager);
+
+Future<bool> pauseDownloadTask(
+        {required DownloadManager manager, required String taskId}) =>
+    RustLib.instance.api
+        .crateApiBridgePauseDownloadTask(manager: manager, taskId: taskId);
+
+Future<bool> resumeDownloadTask(
+        {required DownloadManager manager, required String taskId}) =>
+    RustLib.instance.api
+        .crateApiBridgeResumeDownloadTask(manager: manager, taskId: taskId);
+
+Future<bool> cancelDownloadTask(
+        {required DownloadManager manager,
+        required String taskId,
+        required bool deletePartial}) =>
+    RustLib.instance.api.crateApiBridgeCancelDownloadTask(
+        manager: manager, taskId: taskId, deletePartial: deletePartial);
+
+Future<bool> acknowledgeDownloadPersisted(
+        {required DownloadManager manager, required String taskId}) =>
+    RustLib.instance.api.crateApiBridgeAcknowledgeDownloadPersisted(
+        manager: manager, taskId: taskId);
+
+Future<bool> pluginStorageSet(
+        {required PluginManager manager,
+        required String pluginId,
+        required String key,
+        required String value}) =>
+    RustLib.instance.api.crateApiBridgePluginStorageSet(
+        manager: manager, pluginId: pluginId, key: key, value: value);
+
+Future<String?> pluginStorageGet(
+        {required PluginManager manager,
+        required String pluginId,
+        required String key}) =>
+    RustLib.instance.api.crateApiBridgePluginStorageGet(
+        manager: manager, pluginId: pluginId, key: key);
+
+Future<void> pluginStoragePreload(
+        {required PluginManager manager,
+        required String pluginId,
+        required String key,
+        required String value}) =>
+    RustLib.instance.api.crateApiBridgePluginStoragePreload(
+        manager: manager, pluginId: pluginId, key: key, value: value);
+
+Future<void> pluginStorageClear(
+        {required PluginManager manager, required String pluginId}) =>
+    RustLib.instance.api
+        .crateApiBridgePluginStorageClear(manager: manager, pluginId: pluginId);
+
+Future<PluginManager> createPluginManager({required String pluginsDir}) =>
+    RustLib.instance.api
+        .crateApiBridgeCreatePluginManager(pluginsDir: pluginsDir);
+
+List<String> getLoadedPlugins({required PluginManager manager}) =>
+    RustLib.instance.api.crateApiBridgeGetLoadedPlugins(manager: manager);
+
+Future<List<PluginInfo>> getAvailablePlugins(
+        {required PluginManager manager}) =>
+    RustLib.instance.api.crateApiBridgeGetAvailablePlugins(manager: manager);
+
+Future<void> refreshAvailablePlugins({required PluginManager manager}) =>
+    RustLib.instance.api
+        .crateApiBridgeRefreshAvailablePlugins(manager: manager);
+
+Future<PluginInfo?> getPluginInfo(
+        {required PluginManager manager,
+        required String pluginId,
+        required PluginType pluginType}) =>
+    RustLib.instance.api.crateApiBridgeGetPluginInfo(
+        manager: manager, pluginId: pluginId, pluginType: pluginType);
+
+Future<void> loadPlugin(
+        {required PluginManager manager,
+        required String pluginId,
+        required PluginType pluginType}) =>
+    RustLib.instance.api.crateApiBridgeLoadPlugin(
+        manager: manager, pluginId: pluginId, pluginType: pluginType);
+
+Future<void> unloadPlugin(
+        {required PluginManager manager,
+        required String pluginId,
+        required PluginType pluginType}) =>
+    RustLib.instance.api.crateApiBridgeUnloadPlugin(
+        manager: manager, pluginId: pluginId, pluginType: pluginType);
+
+Future<bool> isPluginLoaded(
+        {required PluginManager manager,
+        required String pluginId,
+        required PluginType pluginType}) =>
+    RustLib.instance.api.crateApiBridgeIsPluginLoaded(
+        manager: manager, pluginId: pluginId, pluginType: pluginType);
+
+Future<PluginResponse> handlePluginRequest(
+        {required PluginManager manager,
+        required String pluginId,
+        required PluginRequest request}) =>
+    RustLib.instance.api.crateApiBridgeHandlePluginRequest(
+        manager: manager, pluginId: pluginId, request: request);
+
+Future<PluginInstallResult> installPackedPlugin(
+        {required String packedFilePath,
+        required String pluginsDir,
+        required String tempDir,
+        required bool shouldLoad,
+        required String policyCountryCode,
+        required PluginManager manager}) =>
+    RustLib.instance.api.crateApiBridgeInstallPackedPlugin(
+        packedFilePath: packedFilePath,
+        pluginsDir: pluginsDir,
+        tempDir: tempDir,
+        shouldLoad: shouldLoad,
+        policyCountryCode: policyCountryCode,
+        manager: manager);
+
+Future<List<String>> scanBexFiles({required String directory}) =>
+    RustLib.instance.api.crateApiBridgeScanBexFiles(directory: directory);
+
+Future<Manifest> inspectPackedPlugin(
+        {required String packedFilePath, required String tempDir}) =>
+    RustLib.instance.api.crateApiBridgeInspectPackedPlugin(
+        packedFilePath: packedFilePath, tempDir: tempDir);
+
+Future<String> getPluginsDir({required PluginManager manager}) =>
+    RustLib.instance.api.crateApiBridgeGetPluginsDir(manager: manager);
+
+Future<void> shutdownPluginManager({required PluginManager manager}) =>
+    RustLib.instance.api.crateApiBridgeShutdownPluginManager(manager: manager);
+
+Future<MetadataResult> getFilenameUrl({required String url}) =>
+    RustLib.instance.api.crateApiBridgeGetFilenameUrl(url: url);
+
+class MetadataResult {
+  final String filename;
+  final bool isSuccess;
+
+  const MetadataResult({
+    required this.filename,
+    required this.isSuccess,
+  });
+
+  @override
+  int get hashCode => filename.hashCode ^ isSuccess.hashCode;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MetadataResult &&
+          runtimeType == other.runtimeType &&
+          filename == other.filename &&
+          isSuccess == other.isSuccess;
+}

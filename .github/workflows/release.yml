@@ -1,0 +1,227 @@
+name: 🚀 Build & Release StreamBeats
+
+# ============================================================
+# TRIGGER: Jalankan otomatis saat ada tag baru yang di-push
+# Contoh: git tag v3.0.5 && git push origin v3.0.5
+# ============================================================
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+
+  # ============================================================
+  # JOB 1: BUILD ANDROID APKs (arm64, armv7, x86_64, universal)
+  # ============================================================
+  build-android:
+    name: 🤖 Build Android APKs
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout kode
+        uses: actions/checkout@v4
+
+      - name: ☕ Setup Java 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: 🦀 Setup Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: aarch64-linux-android,armv7-linux-androideabi,x86_64-linux-android,i686-linux-android
+
+      - name: 🐦 Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.29.3'
+          channel: 'stable'
+          cache: true
+
+      - name: 📦 Install dependensi
+        run: flutter pub get
+
+      - name: 🔑 Decode keystore untuk signing
+        env:
+          KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
+          KEY_PROPERTIES: ${{ secrets.KEY_PROPERTIES }}
+        run: |
+          if [ -n "$KEYSTORE_BASE64" ]; then
+            echo "$KEYSTORE_BASE64" | base64 --decode > android/streambeats.jks
+            echo "$KEY_PROPERTIES" > android/key.properties
+          fi
+
+      - name: 🏗️ Build APK arm64-v8a (HP modern, Recommended)
+        run: flutter build apk --release --target-platform android-arm64
+
+      - name: 📋 Rename arm64 APK
+        run: mv build/app/outputs/flutter-apk/app-arm64-v8a-release.apk build/app/outputs/flutter-apk/StreamBeats-arm64-v8a.apk
+
+      - name: 🏗️ Build APK armeabi-v7a (HP lama 32-bit)
+        run: flutter build apk --release --target-platform android-arm
+
+      - name: 📋 Rename armeabi APK
+        run: mv build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk build/app/outputs/flutter-apk/StreamBeats-armeabi-v7a.apk
+
+      - name: 🏗️ Build APK x86_64 (Emulator/PC)
+        run: flutter build apk --release --target-platform android-x64
+
+      - name: 📋 Rename x86_64 APK
+        run: mv build/app/outputs/flutter-apk/app-x86_64-release.apk build/app/outputs/flutter-apk/StreamBeats-x86_64.apk
+
+      - name: 🏗️ Build APK Universal (semua arsitektur)
+        run: flutter build apk --release
+
+      - name: 📋 Rename Universal APK
+        run: mv build/app/outputs/flutter-apk/app-release.apk build/app/outputs/flutter-apk/StreamBeats-universal.apk
+
+      - name: 📤 Upload Android APKs
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-apks
+          path: build/app/outputs/flutter-apk/StreamBeats-*.apk
+
+  # ============================================================
+  # JOB 2: BUILD WINDOWS
+  # ============================================================
+  build-windows:
+    name: 🪟 Build Windows
+    runs-on: windows-latest
+
+    steps:
+      - name: 📥 Checkout kode
+        uses: actions/checkout@v4
+
+      - name: 🦀 Setup Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: 🐦 Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.29.3'
+          channel: 'stable'
+          cache: true
+
+      - name: 📦 Install dependensi
+        run: flutter pub get
+
+      - name: 🏗️ Build Windows
+        run: flutter build windows --release
+
+      - name: 📦 Install Inno Setup (untuk buat installer EXE)
+        run: choco install innosetup -y
+
+      - name: 🏗️ Build Windows EXE Installer
+        run: |
+          $version = (Select-String -Path pubspec.yaml -Pattern "^version:\s*(\S+)" | Select-Object -First 1).Matches[0].Groups[1].Value -replace '\+.*',''
+          & "C:\Program Files (x86)\Inno Setup 6\ISCC.exe" /DAppVersion=$version windows\installer.iss
+
+      - name: 📤 Upload Windows EXE
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows-build
+          path: build\windows\x64\runner\StreamBeats-Setup.exe
+
+  # ============================================================
+  # JOB 3: BUILD LINUX
+  # ============================================================
+  build-linux:
+    name: 🐧 Build Linux
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout kode
+        uses: actions/checkout@v4
+
+      - name: 🔧 Install dependensi sistem Linux
+        run: |
+          sudo apt-get update -y
+          sudo apt-get install -y ninja-build libgtk-3-dev libblkid-dev liblzma-dev
+
+      - name: 🦀 Setup Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: 🐦 Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.29.3'
+          channel: 'stable'
+          cache: true
+
+      - name: 📦 Install dependensi
+        run: flutter pub get
+
+      - name: 🏗️ Build Linux
+        run: flutter build linux --release
+
+      - name: 📦 Tar hasil build Linux
+        run: |
+          cd build/linux/x64/release/bundle
+          tar -czvf ${{ github.workspace }}/StreamBeats-linux-x64.tar.gz .
+
+      - name: 📤 Upload Linux build
+        uses: actions/upload-artifact@v4
+        with:
+          name: linux-build
+          path: StreamBeats-linux-x64.tar.gz
+
+  # ============================================================
+  # JOB 4: BUAT GITHUB RELEASE RESMI
+  # (Menunggu semua job selesai terlebih dahulu)
+  # ============================================================
+  create-release:
+    name: 📦 Buat GitHub Release
+    needs: [build-android, build-windows, build-linux]
+    runs-on: ubuntu-latest
+    if: always()
+
+    steps:
+      - name: 📥 Download semua artifact Android
+        uses: actions/download-artifact@v4
+        with:
+          name: android-apks
+          path: release-files/
+
+      - name: 📥 Download artifact Windows
+        uses: actions/download-artifact@v4
+        with:
+          name: windows-build
+          path: release-files/
+        continue-on-error: true
+
+      - name: 📥 Download artifact Linux
+        uses: actions/download-artifact@v4
+        with:
+          name: linux-build
+          path: release-files/
+        continue-on-error: true
+
+      - name: 🚀 Buat Release dan upload semua file
+        uses: softprops/action-gh-release@v2
+        with:
+          name: "StreamBeats ${{ github.ref_name }}"
+          body: |
+            ## StreamBeats ${{ github.ref_name }}
+
+            ### 📥 Pilih file yang sesuai dengan perangkat Anda:
+
+            | File | Platform | Keterangan |
+            |---|---|---|
+            | `StreamBeats-arm64-v8a.apk` | 🤖 Android | HP modern 64-bit (2018+). **Direkomendasikan!** |
+            | `StreamBeats-armeabi-v7a.apk` | 🤖 Android | HP lama 32-bit |
+            | `StreamBeats-x86_64.apk` | 🤖 Android | Emulator / Chromebook |
+            | `StreamBeats-universal.apk` | 🤖 Android | Semua perangkat (ukuran lebih besar) |
+            | `StreamBeats-Setup.exe` | 🪟 Windows | Installer Windows 10/11 64-bit |
+            | `StreamBeats-linux-x64.tar.gz` | 🐧 Linux | Linux 64-bit |
+
+            ---
+            > Versi ini di-build secara otomatis menggunakan GitHub Actions.
+          draft: false
+          prerelease: false
+          files: release-files/*
