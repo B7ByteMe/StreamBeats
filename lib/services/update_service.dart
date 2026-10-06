@@ -14,23 +14,23 @@ class UpdateService {
   static bool _updateChecked = false;
 
   /// Checks for updates. Assumes update metadata is stored at:
-  /// https://streambeats.valoraofficial.workers.dev/update.json
+  /// https://streambeats.pages.dev/update.json
   static Future<void> checkUpdate(BuildContext context) async {
     if (_updateChecked) return;
     _updateChecked = true;
 
     try {
       final response = await http.get(
-        Uri.parse('https://streambeats.valoraofficial.workers.dev/update.json'),
+        Uri.parse('https://streambeats.pages.dev/update.json'),
       ).timeout(const Duration(seconds: 5));
 
       if (response.statusCode != 200) return;
 
       final data = json.decode(response.body);
-      final String serverVersion = data['version'] ?? '3.2.1';
-      final int serverBuild = data['buildNumber'] ?? 2;
+      final String serverVersion = data['version'] ?? '3.2.6';
+      final int serverBuild = data['buildNumber'] ?? 9;
       final String apkUrl = data['apkUrl'] ?? '';
-      final String webUrl = data['webUrl'] ?? 'https://streambeats.valoraofficial.workers.dev/';
+      final String webUrl = data['webUrl'] ?? 'https://streambeats.pages.dev/';
       final String changelog = data['changelog'] ?? 'Pembaruan versi terbaru.';
 
       // Get current app version details

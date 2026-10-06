@@ -559,7 +559,7 @@ class HomeSidebarDrawer extends StatelessWidget {
 class ShareBottomSheet extends StatelessWidget {
   const ShareBottomSheet({super.key});
 
-  static const String shareUrl = 'https://streambeats.valoraofficial.workers.dev/';
+  static const String shareUrl = 'https://streambeats.pages.dev/';
   static const String shareText = 'Download StreamBeats sekarang! Pemutar musik gratis tanpa iklan: $shareUrl';
 
   Future<void> _launchShareUrl(String platform) async {

@@ -6,10 +6,10 @@
 
 **Pemutar Musik Hybrid Lintas Platform (Lokal & Streaming) Canggih yang Didukung oleh Flutter & Rust.**
 
-[![GitHub Release](https://img.shields.io/github/v/release/DuskCipher/StreamBeats?display_name=release&style=for-the-badge&color=f01d7c)](https://github.com/DuskCipher/StreamBeats/releases/latest)
-[![GitHub Downloads](https://img.shields.io/github/downloads/DuskCipher/StreamBeats/total?style=for-the-badge&label=DOWNLOADS&color=25D366)](https://github.com/DuskCipher/StreamBeats/releases/latest)
-[![GitHub License](https://img.shields.io/github/license/DuskCipher/StreamBeats?style=for-the-badge&color=1881cc)](https://github.com/DuskCipher/StreamBeats/blob/master/LICENSE)
-[![Build Status](https://img.shields.io/github/actions/workflow/status/DuskCipher/StreamBeats/checkout.yml?style=for-the-badge)](https://github.com/DuskCipher/StreamBeats/actions)
+[![GitHub Release](https://img.shields.io/github/v/release/B7ByteMe/StreamBeats?display_name=release&style=for-the-badge&color=f01d7c)](https://github.com/B7ByteMe/StreamBeats/releases/latest)
+[![GitHub Downloads](https://img.shields.io/github/downloads/B7ByteMe/StreamBeats/total?style=for-the-badge&label=DOWNLOADS&color=25D366)](https://github.com/B7ByteMe/StreamBeats/releases/latest)
+[![GitHub License](https://img.shields.io/github/license/B7ByteMe/StreamBeats?style=for-the-badge&color=1881cc)](https://github.com/B7ByteMe/StreamBeats/blob/main/LICENSE)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/B7ByteMe/StreamBeats/checkout.yml?style=for-the-badge)](https://github.com/B7ByteMe/StreamBeats/actions)
 
 <div style="margin: 10px 0;">
   <img src="https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white">
@@ -28,8 +28,8 @@
 ## Jaminan Keamanan & Sumber Resmi
 Untuk melindungi perangkat Anda dari APK palsu yang dimodifikasi secara ilegal oleh pihak ketiga:
 - **Situs Resmi & Unduhan Aman**:
-  - Halaman Rilis GitHub: [Rilis Resmi StreamBeats](https://github.com/DuskCipher/StreamBeats/releases)
-  - Halaman Web Resmi: [duskcipher.github.io/StreamBeats](https://duskcipher.github.io/StreamBeats/)
+  - Halaman Rilis GitHub: [Rilis Resmi StreamBeats](https://github.com/B7ByteMe/StreamBeats/releases)
+  - Halaman Web Resmi: [streambeats.pages.dev](https://streambeats.pages.dev/)
 
 > [!WARNING]
 > Jangan pernah mengunduh installer StreamBeats dari luar sumber resmi di atas. Kami tidak bertanggung jawab atas kerusakan sistem atau pelanggaran privasi akibat penggunaan file dari pihak ketiga.
@@ -80,7 +80,7 @@ Pastikan perangkat Anda sudah terpasang perkakas berikut:
 
 ### 2. Kloning Repositori
 ```bash
-git clone https://github.com/DuskCipher/StreamBeats.git
+git clone https://github.com/B7ByteMe/StreamBeats.git
 cd StreamBeats
 ```
 
@@ -117,7 +117,7 @@ Mari terhubung dan bergabung bersama komunitas kami:
 
 <div align="center">
 
-[![GitHub Developer Profile](https://img.shields.io/badge/GitHub_Developer-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/DuskCipher)
+[![GitHub Developer Profile](https://img.shields.io/badge/GitHub_Developer-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/B7ByteMe)
 [![WhatsApp Channel](https://img.shields.io/badge/WhatsApp_Channel-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://whatsapp.com/channel/0029Vb8V2qh8V0tpL0VDky0M)
 
 </div>

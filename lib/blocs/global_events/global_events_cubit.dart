@@ -31,7 +31,7 @@ class GlobalEventsCubit extends Cubit<GlobalEventsState> {
         emit(UpdateAvailable(
           newVersion: updates["newVer"],
           newBuild: updates["newBuild"],
-          downloadUrl: updates["download_url"] ?? "https://streambeats.valoraofficial.workers.dev/",
+          downloadUrl: updates["download_url"] ?? "https://streambeats.pages.dev/",
         ));
       }
     }

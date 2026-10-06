@@ -1,6 +1,6 @@
 #define MyAppName "StreamBeats"
 #define MyAppPublisher "Valora Official"
-#define MyAppURL "https://streambeats.valoraofficial.workers.dev/"
+#define MyAppURL "https://streambeats.pages.dev/"
 #define MyAppExeName "streambeats.exe"
 
 [Setup]

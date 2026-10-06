@@ -54,7 +54,7 @@ class CheckUpdateView extends StatelessWidget {
                       child: FilledButton(
                         onPressed: () {
                           launch_Url(Uri.parse(
-                              "https://streambeats.valoraofficial.workers.dev/"));
+                              "https://streambeats.pages.dev/"));
                         },
                         style: FilledButton.styleFrom(
                           backgroundColor: Colors.white,
@@ -136,7 +136,7 @@ class CheckUpdateView extends StatelessWidget {
                       child: FilledButton(
                         onPressed: () {
                           launch_Url(
-                              Uri.parse("https://streambeats.valoraofficial.workers.dev/"));
+                              Uri.parse("https://streambeats.pages.dev/"));
                         },
                         style: FilledButton.styleFrom(
                           backgroundColor: Colors.white,

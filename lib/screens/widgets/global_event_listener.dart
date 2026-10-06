@@ -120,7 +120,7 @@ class _GlobalEventListenerState extends State<GlobalEventListener> {
             UpdateService.showUpdateDialog(
               dialogContext,
               s.newVersion,
-              "https://streambeats.valoraofficial.workers.dev/",
+              "https://streambeats.pages.dev/",
               s.downloadUrl,
               "Pembaruan versi terbaru ${s.newVersion}+${s.newBuild} telah dirilis di GitHub. Anda dapat membuka web resmi atau mengunduh dan memperbarui aplikasi secara langsung.",
             );
