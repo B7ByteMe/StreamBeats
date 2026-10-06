@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StreamBeats - Ad-free tunes from anywhere. your way.</title>
+    <meta name="description" content="StreamBeats is a cross-platform music player built with Flutter and Rust. Mix your local library with online streams, ad-free.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <!-- Falling Petals Background -->
+    <div id="petals-container"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fa-solid fa-music text-primary"></i>
+                <span class="logo-text">StreamBeats</span>
+            </div>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#releases">Releases</a>
+                <a href="#download">Download</a>
+                <a href="#">Blog</a>
+                <a href="#download" class="btn btn-primary btn-small">Free Download</a>
+            </div>
+            <div class="mobile-menu-btn">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+        <div class="nav-submenu">
+            <a href="#overview" class="active">Overview</a>
+            <a href="#features">Features</a>
+            <a href="#releases">Releases</a>
+            <a href="#download">Download</a>
+            <a href="#support">Support</a>
+        </div>
+    </nav>
+
+    <!-- Warning Banner -->
+    <div class="banner">
+        <span class="badge" style="background-color: #25D366; color: #000000;">WHATSAPP</span>
+        <p>Gabung ke saluran WhatsApp saya untuk mendapatkan pembaruan resmi dan informasi rilis terbaru: <a href="https://whatsapp.com/channel/0029Vb8V2qh8V0tpL0VDky0M" target="_blank"><strong>Gabung Saluran →</strong></a></p>
+    </div>
+
+    <!-- Hero Section -->
+    <header class="hero" id="overview">
+        <div class="hero-tagline">
+            <span>&mdash; FREE &middot; OFFICIAL &middot; AD-FREE &mdash;</span>
+        </div>
+        
+        <h1 class="hero-title">StreamBeats</h1>
+        <h2 class="hero-subtitle">ad-free tunes from anywhere. your way.</h2>
+        
+        <p class="hero-description">
+            Cross-platform music player built with Flutter and Rust. Mix your local library with online streams, sing along with lyrics, and own every bit of it. No ads. No account. No tricks.
+        </p>
+        
+        <div class="hero-buttons">
+            <a href="#download" class="btn btn-primary btn-large">
+                <i class="fa-brands fa-android"></i> Download for Android
+            </a>
+            <a href="#download" class="btn btn-outline">
+                <i class="fa-brands fa-windows"></i> Windows
+            </a>
+            <a href="#download" class="btn btn-outline">
+                <i class="fa-brands fa-linux"></i> Linux
+            </a>
+            <a href="https://valora-store.vercel.app/" target="_blank" class="btn btn-outline">
+                <i class="fa-solid fa-store"></i> Toko Valora
+            </a>
+        </div>
+        
+        <div class="download-stats">
+            <span class="stats-label">TOTAL DOWNLOADS</span>
+            <div class="stats-number" id="total-downloads-count">1,247,000</div>
+            <div class="stats-sources" id="download-stats-subtitle">Memuat data unduhan...</div>
+        </div>
+        
+        <div class="latest-version">
+            <span class="status-dot"></span>
+            Latest: <strong id="latest-version-text">v3.0.4+202</strong>
+        </div>
+        
+        <div class="repo-stats">
+            <span>Cross-Platform</span>
+            <span>6 Languages</span>
+            <span>No Ads</span>
+            <span>No Tracking</span>
+            <span>Official Build</span>
+        </div>
+    </header>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="section-header">
+            <span class="section-tag">&mdash; WHAT'S INSIDE</span>
+            <h2 class="section-title">Built for <em>music people.</em></h2>
+            <p class="section-subtitle">Everything you actually need, nothing you don't. Clean, fast, and free forever.</p>
+        </div>
+        
+        <div class="features-grid">
+            <!-- Feature Cards (12 items) -->
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-ban"></i></div>
+                <div class="feature-content">
+                    <h3>Ad-Free</h3>
+                    <p>Zero ads, zero interruptions. Just your music, playing the way you want it.</p>
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-plug"></i></div>
+                <div class="feature-content">
+                    <h3>Rust .bex Plugin System</h3>
+                    <p>Secure, auto-updating plugins for unlimited music sources. Memory-safe, fast, sandboxed.</p>
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-regular fa-folder-open"></i></div>
+                <div class="feature-content">
+                    <h3>Local + Online Unified</h3>
+                    <p>Your offline library alongside streams from YouTube Music, JioSaavn, Spotify & more.</p>
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-microphone"></i></div>
+                <div class="feature-content">
+                    <h3>Full-Screen Karaoke Lyrics</h3>
+                    <p>Time-synced karaoke view with manual offset. Works offline across all sources.</p>
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-sliders"></i></div>
+                <div class="feature-content">
+                    <h3>10-Band EQ + Crossfade</h3>
+                    <p>Per-profile equalizer and configurable crossfade (default 2s) on all platforms.</p>
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-brands fa-discord"></i></div>
+                <div class="feature-content">
+                    <h3>Last.fm & Discord</h3>
+                    <p>Scrobble with offline caching. Show what you're playing live on Discord.</p>
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-rotate-right"></i></div>
+                <div class="feature-content">
+                    <h3>Smart Replace</h3>
+                    <p>Auto-recovery finds a working stream if a track dies mid-playback. No skips.</p>
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-download"></i></div>
+                <div class="feature-content">
+                    <h3>Bulk Downloads</h3>
+                    <p>Download entire playlists or albums at once with the rebuilt download manager.</p>
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-rotate"></i></div>
+                <div class="feature-content">
+                    <h3>Backup & Restore</h3>
+                    <p>Export as JSON or M3U. Import on any device. Zero lock-in, your data is yours.</p>
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-chart-line"></i></div>
+                <div class="feature-content">
+                    <h3>Global Charts</h3>
+                    <p>Daily-updated charts from plugins. Billboard, trending, top 50 — always fresh.</p>
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-language"></i></div>
+                <div class="feature-content">
+                    <h3>6 Languages</h3>
+                    <p>English, Hindi, Korean, German, Spanish, Japanese — all fully maintained.</p>
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                <div class="feature-content">
+                    <h3>AI Recommendations</h3>
+                    <p>Smarter suggestions based on your listening history via Last.fm and plugins.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section class="download" id="download">
+        <div class="section-header">
+            <span class="section-tag">&mdash; DOWNLOAD</span>
+        </div>
+        
+        <div class="download-container">
+            <div class="download-header">
+                <h2>Download <em>StreamBeats</em></h2>
+                <p>Select a version below to download StreamBeats for your device.</p>
+            </div>
+            
+            <div class="version-selector">
+                <label for="release-dropdown">Select Version: </label>
+                <select id="release-dropdown">
+                    <option>Loading releases from GitHub...</option>
+                </select>
+            </div>
+            
+            <div id="release-assets" class="download-grid">
+                <!-- Download cards will be injected here by JavaScript -->
+            </div>
+            
+            <div class="download-footer">
+                Verified Official Release &middot; Made with <i class="fa-solid fa-heart" style="color: var(--primary); font-size: 12px;"></i> by You
+            </div>
+        </div>
+    </section>
+
+    <!-- Support Section -->
+    <section class="support" id="support">
+        <div class="section-header">
+            <span class="section-tag">&mdash; SUPPORT & CONNECT</span>
+        </div>
+        
+        <div class="support-grid">
+            <!-- Donate Card -->
+            <div class="support-card donate-card">
+                <h2>Keep the <em>music playing.</em></h2>
+                <p>StreamBeats is a passion project. Every contribution helps keep it ad-free and actively maintained. <i class="fa-solid fa-mug-hot"></i></p>
+                
+                <a href="https://valora-store.vercel.app/" target="_blank" class="support-link donate-yellow">
+                    <div class="link-content">
+                        <i class="fa-solid fa-store"></i>
+                        <div>
+                            <strong>Toko Valora</strong>
+                            <span>valora-store.vercel.app</span>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+                
+                <a href="https://valora-store.vercel.app/" target="_blank" class="support-link donate-gray">
+                    <div class="link-content">
+                        <i class="fa-solid fa-heart"></i>
+                        <div>
+                            <strong>Donasi Valora</strong>
+                            <span>Dukung pengembang via Valora</span>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+            </div>
+            
+            <!-- Connect Card -->
+            <div class="support-card connect-card">
+                <h2>Get in <em>touch.</em></h2>
+                <p>Questions, feedback, or ideas? Find the community here:</p>
+                
+                <a href="https://whatsapp.com/channel/0029Vb8V2qh8V0tpL0VDky0M" target="_blank" class="support-link outline-link">
+                    <div class="link-content">
+                        <i class="fa-brands fa-whatsapp text-primary"></i>
+                        <div>
+                            <strong>Channel WhatsApp</strong>
+                            <span>Gabung komunitas StreamBeats</span>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+                
+                <a href="https://t.me/Riz_BuyX" target="_blank" class="support-link outline-link">
+                    <div class="link-content">
+                        <i class="fa-brands fa-telegram text-primary"></i>
+                        <div>
+                            <strong>Telegram Support</strong>
+                            <span>@Riz_BuyX</span>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+                
+                <a href="https://whatsapp.com/channel/0029Vb8V2qh8V0tpL0VDky0M" target="_blank" class="support-link outline-link">
+                    <div class="link-content">
+                        <i class="fa-brands fa-whatsapp text-primary"></i>
+                        <div>
+                            <strong>Partner Channel</strong>
+                            <span>Join our partner community</span>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+                
+                <a href="https://t.me/sannforum" target="_blank" class="support-link outline-link">
+                    <div class="link-content">
+                        <i class="fa-brands fa-telegram text-primary"></i>
+                        <div>
+                            <strong>Tele Partner</strong>
+                            <span>@sannforum</span>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2026 StreamBeats. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
