@@ -261,12 +261,23 @@ Future<String?> fetchChangelog(
     {Duration timeout = const Duration(seconds: 6)}) async {
   const changelogUrl =
       'https://streambeats.pages.dev/CHANGELOG.md';
+  const githubRawUrl =
+      'https://raw.githubusercontent.com/B7ByteMe/StreamBeats/main/CHANGELOG.md';
   try {
-    final response = await http.get(Uri.parse(changelogUrl)).timeout(timeout);
-    if (response.statusCode == 200) {
+    var response = await http.get(Uri.parse(changelogUrl)).timeout(timeout);
+    if (response.statusCode != 200 ||
+        response.body.trim().startsWith('<') ||
+        response.body.contains('<!DOCTYPE')) {
+      response = await http.get(Uri.parse(githubRawUrl)).timeout(timeout);
+    }
+
+    if (response.statusCode == 200 &&
+        !response.body.trim().startsWith('<') &&
+        !response.body.contains('<!DOCTYPE') &&
+        response.body.contains('## [')) {
       return response.body;
     } else {
-      log('Changelog fetch returned status ${response.statusCode}',
+      log('Changelog fetch returned non-markdown content',
           name: 'UpdaterTools');
       return null;
     }

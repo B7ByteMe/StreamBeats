@@ -6,6 +6,17 @@ import 'package:package_info_plus/package_info_plus.dart';
 import 'package:streambeats/core/constants/setting_keys.dart';
 
 const String changelogText = """
+## [3.2.6] - 2026-10-07
+
+### Added
+- **Multi-Platform Support**: Resmi mendukung Android, Windows 10/11, Linux, macOS, dan iOS.
+- **Dedicated Android APKs**: Varian arm64-v8a (modern 64-bit), universal, armeabi-v7a, dan x86_64.
+- **Tanda Tangan Resmi V1 & V2**: Menjamin instalasi lancar di semua versi Android tanpa error paket rusak.
+
+### Changed
+- Peningkatan pemutaran musik di latar belakang dan notifikasi audio.
+- Pembaruan sistem sinkronisasi lirik karaoke offline dan unduhan cepat.
+
 ## [Unreleased]
 
 ### Changed
@@ -82,8 +93,11 @@ int _getIndentLevel(String line) {
 }
 
 Changelog parseChangelog(String? log) {
-  if (log == null || log.trim().isEmpty) {
-    return Changelog([]);
+  if (log == null ||
+      log.trim().isEmpty ||
+      log.trim().startsWith('<') ||
+      log.contains('<!DOCTYPE')) {
+    log = changelogText;
   }
 
   List<Version> versions = [];
@@ -247,10 +261,16 @@ class ChangelogScreen extends StatelessWidget {
               ? 'v${snapshot.data!.version}'
               : null; // only version part needed for matching
 
-          final List<Version> versionsToShow = showOlderVersions
+          final List<Version> filteredVersions = showOlderVersions
               ? changelog.versions
               : _filterToInstalledRange(
                   List<Version>.from(changelog.versions), installedLabel);
+
+          final List<Version> versionsToShow = filteredVersions.isNotEmpty
+              ? filteredVersions
+              : (changelog.versions.isNotEmpty
+                  ? changelog.versions
+                  : parseChangelog(changelogText).versions);
 
           final String? installedNorm = installedLabel != null
               ? _normalizeVersionLabel(installedLabel)
