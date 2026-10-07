@@ -182,7 +182,7 @@ function renderRelease(index) {
     const assets = release.assets || [];
     const cat = categorizeAssets(assets);
 
-    const releaseTag = release.tag_name || release.name || 'v3.2.6';
+    const releaseTag = release.tag_name || release.name || 'v3.2.7';
     const releaseDate = formatDate(release.published_at || release.created_at);
     const isPreRelease = !!release.prerelease;
 
@@ -664,7 +664,7 @@ async function fetchReleases() {
 
         const latestVersionText = document.getElementById('latest-version-text');
         if (latestVersionText && allReleases[0]) {
-            latestVersionText.textContent = allReleases[0].tag_name || allReleases[0].name || 'v3.2.6';
+            latestVersionText.textContent = allReleases[0].tag_name || allReleases[0].name || 'v3.2.7';
         }
 
         // Populate Dropdown

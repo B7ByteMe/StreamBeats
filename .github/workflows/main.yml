@@ -250,8 +250,11 @@ jobs:
       - name: Install Dependencies
         run: flutter pub get
 
-      - name: Update CocoaPods Repo
-        run: pod repo update || true
+      - name: Setup CocoaPods & Install iOS Pods
+        run: |
+          flutter precache --ios
+          pod repo update
+          cd ios && pod install --repo-update || true
 
       - name: Extract version from pubspec.yaml
         run: |

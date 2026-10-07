@@ -245,7 +245,7 @@ Future<Map<String, dynamic>> getAppUpdates() async {
     if (currVer == newVer &&
         (readChangelogs == null || readChangelogs != currVer)) {
       final changelogText = await fetchChangelog();
-      updates['changelogs'] = changelogText;
+      updates['changelogs'] = changelogText ?? '';
     } else {
       updates['changelogs'] = null;
     }

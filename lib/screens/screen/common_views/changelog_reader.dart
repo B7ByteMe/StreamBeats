@@ -6,6 +6,19 @@ import 'package:package_info_plus/package_info_plus.dart';
 import 'package:streambeats/core/constants/setting_keys.dart';
 
 const String changelogText = """
+## [3.2.7] - 2026-10-07
+
+### Added
+- **Multi-Platform Support**: Resmi mendukung Android, Windows 10/11, Linux, macOS, dan iOS.
+- **Dedicated Android APKs**: Varian arm64-v8a (modern 64-bit), universal, armeabi-v7a, dan x86_64.
+- **Tanda Tangan Resmi V1 & V2**: Menjamin instalasi lancar di semua versi Android tanpa error paket rusak.
+- **Arsip Multi-OS Standalone**: Paket installer Windows (.exe & .zip), Linux (.tar.gz), macOS (.dmg & .zip), dan iOS (.ipa).
+
+### Changed
+- Peningkatan stabilitas sistem pembaruan dan perbaikan parser changelog in-app.
+- Optimasi pemutaran musik di latar belakang dan notifikasi audio.
+- Pembaruan sistem sinkronisasi lirik karaoke offline dan unduhan cepat.
+
 ## [3.2.6] - 2026-10-07
 
 ### Added
@@ -96,13 +109,16 @@ Changelog parseChangelog(String? log) {
   if (log == null ||
       log.trim().isEmpty ||
       log.trim().startsWith('<') ||
-      log.contains('<!DOCTYPE')) {
+      log.contains('<!DOCTYPE') ||
+      !log.contains('## [')) {
     log = changelogText;
   }
 
+  log = log.replaceAll('\r\n', '\n');
+
   List<Version> versions = [];
   final versionBlocks =
-      log.split(RegExp(r'\n##\s+')).where((block) => block.trim().isNotEmpty);
+      log.split(RegExp(r'(?:^|\n)##\s+')).where((block) => block.trim().isNotEmpty);
 
   for (final block in versionBlocks) {
     final lines = block.trim().split('\n');
@@ -113,7 +129,7 @@ Changelog parseChangelog(String? log) {
     final versionNumber = versionMatch.group(1) ?? 'Unknown Version';
     final releaseDate = versionMatch.group(2);
     final categories = <ChangeCategory>[];
-    ChangeCategory? currentCategory;
+    ChangeCategory? currentCategory = ChangeCategory('Changes', []);
     List<String> categoryLines = [];
 
     void processCategory() {
@@ -123,7 +139,9 @@ Changelog parseChangelog(String? log) {
 
         for (final line in categoryLines) {
           final indentLevel = _getIndentLevel(line);
-          final trimmedLine = line.trim().substring(2);
+          final trimmedLine = line.trim().startsWith('-')
+              ? line.trim().substring(1).trim()
+              : line.trim();
           final newItem = ChangeItem(trimmedLine);
 
           while (parentStack.isNotEmpty &&
@@ -148,14 +166,18 @@ Changelog parseChangelog(String? log) {
       final line = lines[i];
       if (line.trim().startsWith('###')) {
         processCategory();
-        currentCategory = ChangeCategory(line.trim().substring(4), []);
-      } else if (line.trim().startsWith('-') && currentCategory != null) {
+        currentCategory = ChangeCategory(line.trim().substring(3).trim(), []);
+      } else if (line.trim().startsWith('-')) {
         categoryLines.add(line);
       }
     }
     processCategory();
 
     versions.add(Version(versionNumber, releaseDate, categories));
+  }
+
+  if (versions.isEmpty && log != changelogText) {
+    return parseChangelog(changelogText);
   }
 
   final unreleasedIndex =
@@ -208,7 +230,7 @@ List<Version> _filterToInstalledRange(
     out.add(all[i]);
   }
 
-  return out;
+  return out.isNotEmpty ? out : all;
 }
 
 class ChangelogScreen extends StatelessWidget {
@@ -261,16 +283,19 @@ class ChangelogScreen extends StatelessWidget {
               ? 'v${snapshot.data!.version}'
               : null; // only version part needed for matching
 
+          final List<Version> defaultVersions =
+              parseChangelog(changelogText).versions;
+          final List<Version> availableVersions =
+              changelog.versions.isNotEmpty ? changelog.versions : defaultVersions;
+
           final List<Version> filteredVersions = showOlderVersions
-              ? changelog.versions
+              ? availableVersions
               : _filterToInstalledRange(
-                  List<Version>.from(changelog.versions), installedLabel);
+                  List<Version>.from(availableVersions), installedLabel);
 
           final List<Version> versionsToShow = filteredVersions.isNotEmpty
               ? filteredVersions
-              : (changelog.versions.isNotEmpty
-                  ? changelog.versions
-                  : parseChangelog(changelogText).versions);
+              : (availableVersions.isNotEmpty ? availableVersions : defaultVersions);
 
           final String? installedNorm = installedLabel != null
               ? _normalizeVersionLabel(installedLabel)
@@ -320,7 +345,11 @@ class ChangelogScreen extends StatelessWidget {
             });
           }
 
-          if (versionsToShow.isEmpty && !showOlderVersions) {
+          final List<Version> displayVersions = versionsToShow.isNotEmpty
+              ? versionsToShow
+              : defaultVersions;
+
+          if (displayVersions.isEmpty) {
             return const Center(
                 child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -335,7 +364,7 @@ class ChangelogScreen extends StatelessWidget {
 
           return ListView.builder(
             padding: const EdgeInsets.symmetric(horizontal: 14.0),
-            itemCount: versionsToShow.length + 1, // Use the filtered list
+            itemCount: displayVersions.length + 1, // Use the display list
             itemBuilder: (context, index) {
               if (index == 0) {
                 return Padding(
@@ -369,7 +398,7 @@ class ChangelogScreen extends StatelessWidget {
               }
 
               return VersionCard(
-                version: versionsToShow[versionIndex], // Use the filtered list
+                version: displayVersions[versionIndex], // Use the display list
                 listIndex: versionIndex,
                 installedVersion: installedLabel,
                 latestStableVersion: latestStable,

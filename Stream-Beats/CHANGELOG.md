@@ -1,5 +1,18 @@
 # Changelog StreamBeats
 
+## [3.2.7] - 2026-10-07
+
+### Added
+- **Multi-Platform Support**: Rilis resmi untuk Android, Windows 10/11, Linux, macOS, dan iOS.
+- **Dedicated Android APKs**: Varian arm64-v8a (modern 64-bit), universal, armeabi-v7a (32-bit), dan x86_64.
+- **Tanda Tangan Resmi V1 & V2**: Menjamin instalasi lancar di semua tipe Android tanpa error paket rusak.
+- **Arsip Multi-OS Standalone**: Paket installer Windows (.exe & .zip), Linux (.tar.gz), macOS (.dmg & .zip), dan iOS (.ipa).
+
+### Changed
+- Peningkatan stabilitas sistem pembaruan dan perbaikan parser changelog in-app.
+- Optimasi pemutaran musik di latar belakang dan notifikasi audio.
+- Pembaruan sistem sinkronisasi lirik karaoke offline dan unduhan cepat.
+
 ## [3.2.6] - 2026-10-07
 
 ### Added
