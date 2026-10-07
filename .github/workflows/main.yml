@@ -2,6 +2,11 @@ name: "Build & Release"
 
 on:
   workflow_dispatch:
+    inputs:
+      version:
+        description: 'Versi rilis (misal: v3.2.6)'
+        required: false
+        default: 'v3.2.6'
   push:
     tags:
       - 'v*'
@@ -12,7 +17,7 @@ permissions:
 jobs:
 
   # ============================================================
-  # JOB 1: BUILD ANDROID (arm64, armeabi-v7a, x86_64, universal)
+  # JOB 1: BUILD ANDROID APKs (arm64, armeabi-v7a, x86_64, universal)
   # Menjamin V1 dan V2 signature aktif agar tidak muncul 'paket rusak'
   # ============================================================
   build-android:
@@ -317,9 +322,12 @@ EOF
 
       - name: Determine Release Tag
         run: |
-          TAG="v3.2.6"
-          if [ "${{ github.ref_type }}" = "tag" ]; then
-            TAG="${{ github.ref_name }}"
+          TAG="${{ github.event.inputs.version }}"
+          if [ -z "$TAG" ]; then
+            TAG="v3.2.6"
+            if [ "${{ github.ref_type }}" = "tag" ]; then
+              TAG="${{ github.ref_name }}"
+            fi
           fi
           echo "RELEASE_TAG=$TAG" >> $GITHUB_ENV
           echo "Using release tag: $TAG"
