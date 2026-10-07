@@ -1,13 +1,10 @@
-name: 🚀 Build & Release StreamBeats
+name: "Build and Release StreamBeats"
 
-# ============================================================
-# TRIGGER: Jalankan otomatis saat ada tag baru (v*) atau manual (workflow_dispatch)
-# ============================================================
 on:
+  workflow_dispatch:
   push:
     tags:
       - 'v*'
-  workflow_dispatch:
 
 permissions:
   contents: write
@@ -19,44 +16,46 @@ jobs:
   # Menjamin V1, V2 signing aktif agar tidak ada error 'paket rusak'
   # ============================================================
   build-android:
-    name: 🤖 Build Android APKs
+    name: Build Android APKs
     runs-on: ubuntu-latest
 
     steps:
-      - name: 📥 Checkout kode
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: ☕ Setup Java 17
+      - name: Setup Java 17
         uses: actions/setup-java@v4
         with:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: 🦀 Setup Rust
+      - name: Setup Rust
         uses: dtolnay/rust-toolchain@stable
         with:
           targets: aarch64-linux-android,armv7-linux-androideabi,x86_64-linux-android,i686-linux-android
 
-      - name: 🐦 Setup Flutter
+      - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
           channel: 'stable'
           cache: true
 
-      - name: 📦 Install dependensi
+      - name: Install Dependencies
         run: flutter pub get
 
-      - name: 🔑 Siapkan Keystore Resmi untuk Signing APK
+      - name: Setup Keystore for Release Signing
         env:
-          KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 || secrets.KEY_STORE }}
+          KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
+          KEY_STORE: ${{ secrets.KEY_STORE }}
           KEY_PROPERTIES: ${{ secrets.KEY_PROPERTIES }}
           KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
           STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
           KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
         run: |
-          if [ -n "$KEYSTORE_BASE64" ]; then
-            echo "Memulihkan keystore dari secret..."
-            echo "$KEYSTORE_BASE64" | base64 --decode > android/streambeats.jks
+          RAW_KEYSTORE="${KEYSTORE_BASE64:-$KEY_STORE}"
+          if [ -n "$RAW_KEYSTORE" ]; then
+            echo "Restoring keystore from GitHub secret..."
+            echo "$RAW_KEYSTORE" | base64 --decode > android/streambeats.jks
             if [ -n "$KEY_PROPERTIES" ]; then
               echo "$KEY_PROPERTIES" > android/key.properties
             else
@@ -68,7 +67,7 @@ storeFile=streambeats.jks
 EOF
             fi
           elif [ ! -f android/key.properties ]; then
-            echo "Membuat release keystore StreamBeats mandiri (V1 & V2 compatible)..."
+            echo "Generating self-contained release keystore with V1 and V2 compatibility..."
             keytool -genkey -v -keystore android/streambeats.jks \
               -keyalg RSA -keysize 2048 -validity 10000 \
               -alias streambeats -storepass streambeats123 -keypass streambeats123 \
@@ -81,49 +80,49 @@ storeFile=streambeats.jks
 EOF
           fi
 
-      - name: 🏗️ Build Semua Versi APK (arm64, armv7, x86_64, universal)
+      - name: Build Android APKs
         run: flutter build apk --release --android-skip-build-dependency-validation
 
-      - name: 📋 Rapikan Nama APK Resmi
+      - name: Organize APK Files
         run: |
           cd build/app/outputs/flutter-apk
           ls -la
 
-          # 1. arm64-v8a (HP modern)
+          # 1. arm64-v8a (HP modern 64-bit)
           if [ -f app-arm64-v8a-release.apk ]; then
             cp app-arm64-v8a-release.apk StreamBeats-arm64-v8a.apk
           fi
 
-          # 2. armeabi-v7a (HP lama)
+          # 2. armeabi-v7a (HP 32-bit)
           if [ -f app-armeabi-v7a-release.apk ]; then
             cp app-armeabi-v7a-release.apk StreamBeats-armeabi-v7a.apk
           fi
 
-          # 3. x86_64 (Emulator)
+          # 3. x86_64 (Emulator PC)
           if [ -f app-x86_64-release.apk ]; then
             cp app-x86_64-release.apk StreamBeats-x86_64.apk
           fi
 
-          # 4. Universal (Semua HP)
+          # 4. Universal (Semua arsitektur)
           if [ -f app-universal-release.apk ]; then
             cp app-universal-release.apk StreamBeats-universal.apk
           elif [ -f app-release.apk ]; then
             cp app-release.apk StreamBeats-universal.apk
           fi
 
-      - name: 🔍 Verifikasi Integritas dan Tanda Tangan APK (apksigner)
+      - name: Verify APK Signatures with apksigner
         run: |
           BUILD_TOOLS_DIR=$(ls -d $ANDROID_HOME/build-tools/* | sort -V | tail -n 1)
-          echo "Menggunakan build-tools: $BUILD_TOOLS_DIR"
+          echo "Using Android build-tools: $BUILD_TOOLS_DIR"
           cd build/app/outputs/flutter-apk
           for apk in StreamBeats-*.apk; do
             if [ -f "$apk" ]; then
-              echo "=== Verifikasi $apk ==="
+              echo "=== Verifying $apk ==="
               $BUILD_TOOLS_DIR/apksigner verify --verbose "$apk"
             fi
           done
 
-      - name: 📤 Upload Android APKs
+      - name: Upload Android Artifacts
         uses: actions/upload-artifact@v4
         with:
           name: android-apks
@@ -133,42 +132,42 @@ EOF
   # JOB 2: BUILD WINDOWS (Installer EXE + ZIP Portable)
   # ============================================================
   build-windows:
-    name: 🪟 Build Windows
+    name: Build Windows
     runs-on: windows-latest
 
     steps:
-      - name: 📥 Checkout kode
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: 🦀 Setup Rust
+      - name: Setup Rust
         uses: dtolnay/rust-toolchain@stable
 
-      - name: 🐦 Setup Flutter
+      - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
           channel: 'stable'
           cache: true
 
-      - name: 📦 Install dependensi
+      - name: Install Dependencies
         run: flutter pub get
 
-      - name: 🏗️ Build Windows Release
+      - name: Build Windows Release
         run: flutter build windows --release
 
-      - name: 📦 Install Inno Setup
+      - name: Install Inno Setup
         run: choco install innosetup -y
 
-      - name: 🏗️ Buat Windows EXE Installer
+      - name: Build Inno Setup Installer
         run: |
           $version = (Select-String -Path pubspec.yaml -Pattern "^version:\s*(\S+)" | Select-Object -First 1).Matches[0].Groups[1].Value -replace '\+.*',''
           & "C:\Program Files (x86)\Inno Setup 6\ISCC.exe" /DAppVersion=$version windows\installer.iss
 
-      - name: 📦 Buat ZIP Portable Windows
+      - name: Compress Portable Windows Zip
         shell: powershell
         run: |
           Compress-Archive -Path build\windows\x64\runner\Release\* -DestinationPath StreamBeats-windows-x64.zip
 
-      - name: 📤 Upload Windows Artifacts
+      - name: Upload Windows Artifacts
         uses: actions/upload-artifact@v4
         with:
           name: windows-build
@@ -180,39 +179,39 @@ EOF
   # JOB 3: BUILD LINUX (Tarball Standalone)
   # ============================================================
   build-linux:
-    name: 🐧 Build Linux
+    name: Build Linux
     runs-on: ubuntu-latest
 
     steps:
-      - name: 📥 Checkout kode
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: 🔧 Install dependensi sistem Linux
+      - name: Install Linux System Dependencies
         run: |
           sudo apt-get update -y
           sudo apt-get install -y ninja-build libgtk-3-dev libblkid-dev liblzma-dev libasound2-dev libpulse-dev
 
-      - name: 🦀 Setup Rust
+      - name: Setup Rust
         uses: dtolnay/rust-toolchain@stable
 
-      - name: 🐦 Setup Flutter
+      - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
           channel: 'stable'
           cache: true
 
-      - name: 📦 Install dependensi
+      - name: Install Dependencies
         run: flutter pub get
 
-      - name: 🏗️ Build Linux Release
+      - name: Build Linux Release
         run: flutter build linux --release
 
-      - name: 📦 Tar hasil build Linux
+      - name: Package Linux Tarball
         run: |
           cd build/linux/x64/release/bundle
           tar -czvf ${{ github.workspace }}/StreamBeats-linux-x64.tar.gz .
 
-      - name: 📤 Upload Linux build
+      - name: Upload Linux Artifacts
         uses: actions/upload-artifact@v4
         with:
           name: linux-build
@@ -222,40 +221,38 @@ EOF
   # JOB 4: BUILD MACOS (MacBook & iMac DMG + ZIP)
   # ============================================================
   build-macos:
-    name: 🍎 Build macOS (MacBook)
+    name: Build macOS
     runs-on: macos-14
     continue-on-error: true
 
     steps:
-      - name: 📥 Checkout kode
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: 🦀 Setup Rust
+      - name: Setup Rust
         uses: dtolnay/rust-toolchain@stable
         with:
           targets: aarch64-apple-darwin,x86_64-apple-darwin
 
-      - name: 🐦 Setup Flutter
+      - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
           channel: 'stable'
           cache: true
 
-      - name: 📦 Install dependensi
+      - name: Install Dependencies
         run: flutter pub get
 
-      - name: 🏗️ Build macOS Release
+      - name: Build macOS Release
         run: flutter build macos --release
 
-      - name: 📦 Buat Paket DMG & ZIP macOS
+      - name: Package DMG and ZIP
         run: |
           cd build/macos/Build/Products/Release
-          # 1. Zip
           zip -r -9 ${{ github.workspace }}/StreamBeats-macOS.zip StreamBeats.app
-          # 2. DMG
           hdiutil create -volname "StreamBeats" -srcfolder StreamBeats.app -ov -format UDZO ${{ github.workspace }}/StreamBeats-macOS.dmg || true
 
-      - name: 📤 Upload macOS build
+      - name: Upload macOS Artifacts
         uses: actions/upload-artifact@v4
         with:
           name: macos-build
@@ -267,108 +264,116 @@ EOF
   # JOB 5: BUILD IOS (iPhone / iPad Sideload IPA)
   # ============================================================
   build-ios:
-    name: 📱 Build iOS (iPhone / iPad Sideload)
+    name: Build iOS
     runs-on: macos-14
     continue-on-error: true
 
     steps:
-      - name: 📥 Checkout kode
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: 🦀 Setup Rust
+      - name: Setup Rust
         uses: dtolnay/rust-toolchain@stable
         with:
           targets: aarch64-apple-ios
 
-      - name: 🐦 Setup Flutter
+      - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
           channel: 'stable'
           cache: true
 
-      - name: 📦 Install dependensi
+      - name: Install Dependencies
         run: flutter pub get
 
-      - name: 🏗️ Build iOS (Unsigned untuk Sideloading)
+      - name: Build iOS Release (Unsigned)
         run: flutter build ios --release --no-codesign
 
-      - name: 📦 Buat Paket IPA untuk AltStore / TrollStore / Scarlet
+      - name: Package Sideload IPA
         run: |
           mkdir -p Payload
           cp -r build/ios/iphoneos/Runner.app Payload/
           zip -r -9 ${{ github.workspace }}/StreamBeats-iOS.ipa Payload
           rm -rf Payload
 
-      - name: 📤 Upload iOS build
+      - name: Upload iOS Artifacts
         uses: actions/upload-artifact@v4
         with:
           name: ios-build
           path: StreamBeats-iOS.ipa
 
   # ============================================================
-  # JOB 6: PUBLISH GITHUB RELEASE RESMI
-  # Menggabungkan seluruh installer multi-platform ke GitHub Release
+  # JOB 6: PUBLISH MULTI-PLATFORM GITHUB RELEASE
   # ============================================================
   create-release:
-    name: 📦 Publikasikan Multi-Platform GitHub Release
+    name: Publish Multi-Platform Release
     needs: [build-android, build-windows, build-linux, build-macos, build-ios]
     runs-on: ubuntu-latest
     if: always()
 
     steps:
-      - name: 📥 Checkout kode
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: 📂 Buat direktori release-files
+      - name: Determine Release Tag
+        run: |
+          TAG="v3.2.6"
+          if [ "${{ github.ref_type }}" = "tag" ]; then
+            TAG="${{ github.ref_name }}"
+          fi
+          echo "RELEASE_TAG=$TAG" >> $GITHUB_ENV
+          echo "Using release tag: $TAG"
+
+      - name: Prepare Release Directory
         run: mkdir -p release-files
 
-      - name: 📥 Download artifact Android
+      - name: Download Android Artifacts
         uses: actions/download-artifact@v4
         with:
           name: android-apks
           path: release-files/
         continue-on-error: true
 
-      - name: 📥 Download artifact Windows
+      - name: Download Windows Artifacts
         uses: actions/download-artifact@v4
         with:
           name: windows-build
           path: release-files/
         continue-on-error: true
 
-      - name: 📥 Download artifact Linux
+      - name: Download Linux Artifacts
         uses: actions/download-artifact@v4
         with:
           name: linux-build
           path: release-files/
         continue-on-error: true
 
-      - name: 📥 Download artifact macOS
+      - name: Download macOS Artifacts
         uses: actions/download-artifact@v4
         with:
           name: macos-build
           path: release-files/
         continue-on-error: true
 
-      - name: 📥 Download artifact iOS
+      - name: Download iOS Artifacts
         uses: actions/download-artifact@v4
         with:
           name: ios-build
           path: release-files/
         continue-on-error: true
 
-      - name: 📋 Periksa semua file rilis
+      - name: List Release Files
         run: |
-          echo "Daftar file rilis yang berhasil dibuat:"
+          echo "Release artifacts ready:"
           ls -lh release-files/
 
-      - name: 🚀 Buat atau Perbarui GitHub Release
+      - name: Publish GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: ${{ github.ref_type == 'tag' && github.ref_name || 'v3.2.6' }}
-          name: "StreamBeats ${{ github.ref_type == 'tag' && github.ref_name || 'v3.2.6' }}"
+          tag_name: ${{ env.RELEASE_TAG }}
+          name: "StreamBeats ${{ env.RELEASE_TAG }}"
           body: |
-            ## 🎵 StreamBeats ${{ github.ref_type == 'tag' && github.ref_name || 'v3.2.6' }} Official Release
+            ## 🎵 StreamBeats Official Release
 
             Aplikasi pemutar musik lintas platform bebas iklan, ringan, dan cepat!
 
@@ -377,7 +382,7 @@ EOF
             | File | Platform | Keterangan |
             |---|---|---|
             | `StreamBeats-arm64-v8a.apk` | 🤖 Android | HP modern 64-bit (**Direkomendasikan!**) |
-            | `StreamBeats-universal.apk` | 🤖 Android | Semua HP (Universal - jika ragu) |
+            | `StreamBeats-universal.apk` | 🤖 Android | Semua HP (Universal) |
             | `StreamBeats-armeabi-v7a.apk` | 🤖 Android | HP lama 32-bit |
             | `StreamBeats-x86_64.apk` | 🤖 Android | Emulator PC & Intel |
             | `StreamBeats-Setup.exe` | 🪟 Windows | Installer Windows 10 & 11 |
