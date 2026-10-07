@@ -68,14 +68,20 @@
         </p>
         
         <div class="hero-buttons">
-            <a href="#download" class="btn btn-primary btn-large">
-                <i class="fa-brands fa-android"></i> Download for Android
+            <a href="#card-android" class="btn btn-primary btn-large">
+                <i class="fa-brands fa-android"></i> Android APK
             </a>
-            <a href="#download" class="btn btn-outline">
+            <a href="#card-windows" class="btn btn-outline">
                 <i class="fa-brands fa-windows"></i> Windows
             </a>
-            <a href="#download" class="btn btn-outline">
+            <a href="#card-linux" class="btn btn-outline">
                 <i class="fa-brands fa-linux"></i> Linux
+            </a>
+            <a href="#card-macos" class="btn btn-outline">
+                <i class="fa-brands fa-apple"></i> Mac
+            </a>
+            <a href="#card-ios" class="btn btn-outline">
+                <i class="fa-solid fa-mobile-screen"></i> iOS
             </a>
             <a href="https://valora-store.vercel.app/" target="_blank" class="btn btn-outline">
                 <i class="fa-solid fa-store"></i> Toko Valora
@@ -219,18 +225,18 @@
         <div class="download-container">
             <div class="download-header">
                 <h2>Download <em>StreamBeats</em></h2>
-                <p>Select a version below to download StreamBeats for your device.</p>
+                <p>Pilih versi rilis dan kotak platform untuk perangkat Anda:</p>
             </div>
             
             <div class="version-selector">
-                <label for="release-dropdown">Select Version: </label>
+                <label for="release-dropdown"><i class="fa-solid fa-code-branch"></i> Pilih Versi Rilis: </label>
                 <select id="release-dropdown">
-                    <option>Loading releases from GitHub...</option>
+                    <option>Memuat daftar rilis dari GitHub...</option>
                 </select>
             </div>
             
-            <div id="release-assets" class="download-grid">
-                <!-- Download cards will be injected here by JavaScript -->
+            <div id="release-assets" class="release-assets-container">
+                <!-- Platform cards will be injected dynamically by JavaScript -->
             </div>
             
             <div class="download-footer">

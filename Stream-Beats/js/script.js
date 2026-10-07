@@ -1,1 +1,769 @@
-const a0_0x10bbd7=a0_0x1ced;(function(_0x5879fd,_0x5d627d){const _0x51aaf3=a0_0x1ced,_0x54415a=_0x5879fd();while(!![]){try{const _0x1b3e70=-parseInt(_0x51aaf3(0x237))/0x1*(parseInt(_0x51aaf3(0x21d))/0x2)+-parseInt(_0x51aaf3(0x2ec))/0x3+-parseInt(_0x51aaf3(0x244))/0x4+-parseInt(_0x51aaf3(0x275))/0x5*(parseInt(_0x51aaf3(0x269))/0x6)+parseInt(_0x51aaf3(0x287))/0x7+-parseInt(_0x51aaf3(0x2f7))/0x8*(-parseInt(_0x51aaf3(0x1c8))/0x9)+parseInt(_0x51aaf3(0x2ff))/0xa;if(_0x1b3e70===_0x5d627d)break;else _0x54415a['push'](_0x54415a['shift']());}catch(_0x478454){_0x54415a['push'](_0x54415a['shift']());}}}(a0_0x3c25,0x9d1b2));const a0_0x320675=(function(){let _0x2f2162=!![];return function(_0x3cfd92,_0x3b3878){const _0x2f1124=_0x2f2162?function(){const _0x247372=a0_0x1ced;if(_0x3b3878){const _0x5ba62f=_0x3b3878[_0x247372(0x1ef)](_0x3cfd92,arguments);return _0x3b3878=null,_0x5ba62f;}}:function(){};return _0x2f2162=![],_0x2f1124;};}()),a0_0x580a48=a0_0x320675(this,function(){const _0x1caee1=a0_0x1ced;if(a0_0x580a48[_0x1caee1(0x25c)]()['toStr'+_0x1caee1(0x2df)]()['index'+'Of']('\x0a')!==-0x1)return;return a0_0x580a48[_0x1caee1(0x1e0)+_0x1caee1(0x2df)]()[_0x1caee1(0x209)+'h'](_0x1caee1(0x212)+_0x1caee1(0x2c0)+'+$')[_0x1caee1(0x1e0)+_0x1caee1(0x2df)]()['const'+_0x1caee1(0x1b9)+'r'](a0_0x580a48)[_0x1caee1(0x209)+'h'](_0x1caee1(0x212)+_0x1caee1(0x2c0)+'+$');});a0_0x580a48();const GITHUB_OWNER='B7ByteMe',GITHUB_REPO='StreamBeats',GITHUB_API='https://api.github.com/repos/'+GITHUB_OWNER+'/'+GITHUB_REPO+'/releases';let allReleases=[];const obfuscatedDownloads={};function obfuscateUrl(_0x29fab9){return btoa(unescape(encodeURIComponent(_0x29fab9)));}function deobfuscateUrl(_0x1f97f1){return decodeURIComponent(escape(atob(_0x1f97f1)));}function triggerDownload(_0x206364){const _0x487e1b=a0_0x10bbd7,_0x229ab5=document[_0x487e1b(0x2b4)+_0x487e1b(0x267)+'ent']('a');_0x229ab5[_0x487e1b(0x2ed)][_0x487e1b(0x2d2)+'ay']=_0x487e1b(0x2ad),_0x229ab5[_0x487e1b(0x30f)]=_0x206364,_0x229ab5[_0x487e1b(0x22d)+_0x487e1b(0x1ec)+'te'](_0x487e1b(0x200)+'oad',''),document[_0x487e1b(0x294)][_0x487e1b(0x1b3)+'dChil'+'d'](_0x229ab5),_0x229ab5[_0x487e1b(0x299)](),document[_0x487e1b(0x294)][_0x487e1b(0x24a)+_0x487e1b(0x204)+'d'](_0x229ab5);}document[a0_0x10bbd7(0x2a3)+'entLi'+a0_0x10bbd7(0x2d0)+'r'](a0_0x10bbd7(0x321)+a0_0x10bbd7(0x26e)+a0_0x10bbd7(0x1d0)+'d',()=>{const _0x5e5bee=a0_0x10bbd7,_0x50fcf1=document[_0x5e5bee(0x1c9)+_0x5e5bee(0x2ea)+_0x5e5bee(0x2b0)](_0x5e5bee(0x2c3)+_0x5e5bee(0x28d)+_0x5e5bee(0x23f)+'n'),_0x444362=document[_0x5e5bee(0x1c9)+_0x5e5bee(0x2ea)+_0x5e5bee(0x2b0)]('.nav-'+_0x5e5bee(0x26c));_0x50fcf1&&_0x444362&&_0x50fcf1[_0x5e5bee(0x2a3)+_0x5e5bee(0x27b)+'stene'+'r']('click',()=>{const _0x4fe734=_0x5e5bee;_0x444362[_0x4fe734(0x2ed)]['displ'+'ay']===_0x4fe734(0x28b)?_0x444362[_0x4fe734(0x2ed)][_0x4fe734(0x2d2)+'ay']=_0x4fe734(0x2ad):(_0x444362[_0x4fe734(0x2ed)][_0x4fe734(0x2d2)+'ay']=_0x4fe734(0x28b),_0x444362[_0x4fe734(0x2ed)][_0x4fe734(0x24b)+_0x4fe734(0x2e6)+'ion']=_0x4fe734(0x1c1)+'n',_0x444362[_0x4fe734(0x2ed)]['posit'+_0x4fe734(0x239)]=_0x4fe734(0x326)+'ute',_0x444362[_0x4fe734(0x2ed)][_0x4fe734(0x2f4)]=_0x4fe734(0x2ef),_0x444362['style'][_0x4fe734(0x2b5)]='0',_0x444362['style'][_0x4fe734(0x300)]=_0x4fe734(0x2ef),_0x444362[_0x4fe734(0x2ed)][_0x4fe734(0x1b5)+_0x4fe734(0x1b0)+_0x4fe734(0x1f3)]=_0x4fe734(0x2c2)+'10,\x201'+_0x4fe734(0x2ca)+_0x4fe734(0x31f)+'7)',_0x444362[_0x4fe734(0x2ed)][_0x4fe734(0x23b)+'ng']='20px',_0x444362[_0x4fe734(0x2ed)]['boxSh'+_0x4fe734(0x29e)]='0\x2010p'+_0x4fe734(0x228)+_0x4fe734(0x279)+_0x4fe734(0x1e5)+_0x4fe734(0x1d8)+'5)');}),document['query'+_0x5e5bee(0x2ea)+'torAl'+'l'](_0x5e5bee(0x264)+_0x5e5bee(0x1fc)+'\x22]')[_0x5e5bee(0x319)+'ch'](_0xb985f4=>{const _0x473fda=_0x5e5bee;_0xb985f4[_0x473fda(0x2a3)+_0x473fda(0x27b)+_0x473fda(0x2d0)+'r']('click',function(_0x13a69f){const _0x151d87=_0x473fda;_0x13a69f['preve'+_0x151d87(0x2b3)+_0x151d87(0x261)]();const _0x453d09=this[_0x151d87(0x1db)+_0x151d87(0x1ec)+'te'](_0x151d87(0x30f));if(_0x453d09==='#')return;const _0xbfc94d=document[_0x151d87(0x1c9)+_0x151d87(0x2ea)+_0x151d87(0x2b0)](_0x453d09);_0xbfc94d&&window[_0x151d87(0x305)+'lTo']({'top':_0xbfc94d[_0x151d87(0x2b8)+_0x151d87(0x260)]-0x50,'behavior':'smoot'+'h'});if(window[_0x151d87(0x2de)+_0x151d87(0x284)]<=0x384&&_0x444362)_0x444362[_0x151d87(0x2ed)][_0x151d87(0x2d2)+'ay']=_0x151d87(0x2ad);});}),createPetals(),fetchReleases();});async function fetchReleases(){const _0x1c6eb4=a0_0x10bbd7,_0x14e1f7=document[_0x1c6eb4(0x1a9)+_0x1c6eb4(0x211)+_0x1c6eb4(0x2a1)](_0x1c6eb4(0x1af)+_0x1c6eb4(0x2f9)+'opdow'+'n'),_0x5984b2=document[_0x1c6eb4(0x1a9)+'ement'+_0x1c6eb4(0x2a1)]('relea'+_0x1c6eb4(0x1d5)+_0x1c6eb4(0x1f0));if(!_0x14e1f7||!_0x5984b2)return;showLoading(_0x5984b2);try{const _0x406eb7=await fetch(GITHUB_API+('?per_'+_0x1c6eb4(0x263)+'20'));if(!_0x406eb7['ok'])throw new Error('GitHu'+_0x1c6eb4(0x2fb)+_0x1c6eb4(0x22e)+_0x1c6eb4(0x1fb)+_0x406eb7['statu'+'s']);allReleases=await _0x406eb7['json']();if(!allReleases||allReleases[_0x1c6eb4(0x23e)+'h']===0x0){showError(_0x5984b2,_0x1c6eb4(0x2d4)+'\x20ada\x20'+_0x1c6eb4(0x21a)+'\x20yang'+_0x1c6eb4(0x285)+_0x1c6eb4(0x1d6));return;}const _0x35511e=document[_0x1c6eb4(0x1a9)+'ement'+_0x1c6eb4(0x2a1)]('lates'+_0x1c6eb4(0x2bd)+_0x1c6eb4(0x2e8)+_0x1c6eb4(0x308));_0x35511e&&allReleases[0x0]&&(_0x35511e[_0x1c6eb4(0x30e)+'onten'+'t']=allReleases[0x0][_0x1c6eb4(0x1f2)+'ame']);let _0x3fc636=0x0;allReleases[_0x1c6eb4(0x319)+'ch'](_0x497fe8=>{const _0x91a579=_0x1c6eb4;_0x497fe8[_0x91a579(0x322)+'s']&&_0x497fe8['asset'+'s'][_0x91a579(0x319)+'ch'](_0x4e2c5f=>{const _0x427c1a=_0x91a579;_0x3fc636+=_0x4e2c5f[_0x427c1a(0x200)+'oad_c'+_0x427c1a(0x2c5)]||0x0;});});const _0x48605f=parseInt(localStorage[_0x1c6eb4(0x1cc)+'em'](_0x1c6eb4(0x2da)+_0x1c6eb4(0x25b)+_0x1c6eb4(0x270)+'s')||'0'),_0x236885=0xe2130,_0x40da72=_0x236885+_0x3fc636+_0x48605f;window['_sbGi'+_0x1c6eb4(0x1f1)+_0x1c6eb4(0x29c)+_0x1c6eb4(0x28e)]=_0x3fc636,window[_0x1c6eb4(0x2fd)+_0x1c6eb4(0x1bc)+_0x1c6eb4(0x313)+_0x1c6eb4(0x318)]=_0x236885;const _0x5a7e91=document[_0x1c6eb4(0x1a9)+_0x1c6eb4(0x211)+'ById'](_0x1c6eb4(0x28f)+_0x1c6eb4(0x1d7)+_0x1c6eb4(0x318)+_0x1c6eb4(0x278)+'t');_0x5a7e91&&(_0x5a7e91[_0x1c6eb4(0x30e)+'onten'+'t']=_0x40da72[_0x1c6eb4(0x1d3)+_0x1c6eb4(0x2cd)+_0x1c6eb4(0x243)](_0x1c6eb4(0x1fa)));const _0x349c46=document[_0x1c6eb4(0x1a9)+_0x1c6eb4(0x211)+_0x1c6eb4(0x2a1)](_0x1c6eb4(0x200)+_0x1c6eb4(0x29b)+_0x1c6eb4(0x295)+'subti'+'tle');_0x349c46&&(_0x349c46[_0x1c6eb4(0x30e)+'onten'+'t']='Platf'+_0x1c6eb4(0x2e2)+'ain\x20'+_0x236885[_0x1c6eb4(0x1d3)+'aleSt'+_0x1c6eb4(0x243)](_0x1c6eb4(0x1fa))+(_0x1c6eb4(0x292)+_0x1c6eb4(0x276)+_0x1c6eb4(0x2cc)+'\x20web\x20')+(_0x3fc636+_0x48605f)[_0x1c6eb4(0x1d3)+_0x1c6eb4(0x2cd)+_0x1c6eb4(0x243)](_0x1c6eb4(0x1fa))),_0x14e1f7['inner'+_0x1c6eb4(0x1be)]='',allReleases[_0x1c6eb4(0x319)+'ch']((_0x545e1d,_0x2b73c9)=>{const _0x74ee4b=_0x1c6eb4,_0x33381d=document[_0x74ee4b(0x2b4)+_0x74ee4b(0x267)+'ent']('optio'+'n');_0x33381d[_0x74ee4b(0x2dd)]=_0x2b73c9;const _0x1787f0=_0x545e1d[_0x74ee4b(0x1f2)+_0x74ee4b(0x2db)],_0x284a9f=_0x2b73c9===0x0,_0x57cad2=_0x545e1d[_0x74ee4b(0x27e)+_0x74ee4b(0x1c0)];let _0x4f1f03=_0x1787f0;if(_0x284a9f&&!_0x57cad2)_0x4f1f03+='\x20\x20✅\x20L'+_0x74ee4b(0x20c)+_0x74ee4b(0x1e2)+'le';else{if(_0x57cad2)_0x4f1f03+=_0x74ee4b(0x282)+'re-re'+_0x74ee4b(0x1c0);}_0x33381d[_0x74ee4b(0x30e)+'onten'+'t']=_0x4f1f03,_0x14e1f7['appen'+_0x74ee4b(0x22c)+'d'](_0x33381d);}),renderRelease(0x0,_0x5984b2),_0x14e1f7[_0x1c6eb4(0x2a3)+_0x1c6eb4(0x27b)+_0x1c6eb4(0x2d0)+'r'](_0x1c6eb4(0x312)+'e',()=>{const _0x3a1961=_0x1c6eb4;renderRelease(parseInt(_0x14e1f7[_0x3a1961(0x2dd)]),_0x5984b2);});}catch(_0x2d4683){console['error'](_0x2d4683),showError(_0x5984b2,_0x1c6eb4(0x1b1)+_0x1c6eb4(0x224)+_0x1c6eb4(0x27f)+_0x1c6eb4(0x1c3)+_0x1c6eb4(0x2c1)+_0x1c6eb4(0x2cb)+_0x1c6eb4(0x2a0)),_0x14e1f7[_0x1c6eb4(0x2de)+'HTML']=_0x1c6eb4(0x2fe)+'on>Ga'+'gal\x20m'+_0x1c6eb4(0x1fd)+_0x1c6eb4(0x1e3)+_0x1c6eb4(0x230)+_0x1c6eb4(0x2a5);}}function renderRelease(_0x590711,_0xbec505){const _0x52d86c=a0_0x10bbd7,_0x411538=allReleases[_0x590711];if(!_0x411538)return;_0xbec505[_0x52d86c(0x2de)+_0x52d86c(0x1be)]='';const _0x1bdc3a=document['getEl'+_0x52d86c(0x211)+_0x52d86c(0x2a1)](_0x52d86c(0x1af)+'se-in'+'fo-ba'+_0x52d86c(0x24d));if(_0x1bdc3a)_0x1bdc3a[_0x52d86c(0x24a)+'e']();const _0x34b3a3=document[_0x52d86c(0x2b4)+_0x52d86c(0x267)+_0x52d86c(0x2aa)]('div');_0x34b3a3['id']=_0x52d86c(0x1af)+'se-in'+_0x52d86c(0x215)+_0x52d86c(0x24d),_0x34b3a3[_0x52d86c(0x252)+_0x52d86c(0x30b)]=_0x52d86c(0x1af)+'se-in'+'fo';const _0x261b3a=new Date(_0x411538[_0x52d86c(0x1da)+'shed_'+'at'])[_0x52d86c(0x1d3)+_0x52d86c(0x1e6)+_0x52d86c(0x2bb)+_0x52d86c(0x2df)]('id-ID',{'year':_0x52d86c(0x1cd)+'ic','month':_0x52d86c(0x1e8),'day':_0x52d86c(0x1cd)+'ic'});_0x34b3a3['inner'+_0x52d86c(0x1be)]=_0x52d86c(0x226)+_0x52d86c(0x234)+_0x52d86c(0x2e5)+_0x52d86c(0x258)+'\x20<str'+_0x52d86c(0x27a)+_0x411538[_0x52d86c(0x1f2)+'ame']+(_0x52d86c(0x1cb)+_0x52d86c(0x265)+_0x52d86c(0x1c4)+_0x52d86c(0x2e0)+_0x52d86c(0x1ff)+'nbsp;'+_0x52d86c(0x223)+_0x52d86c(0x247)+_0x52d86c(0x1ea)+_0x52d86c(0x1aa)+'g>')+_0x261b3a+('</str'+_0x52d86c(0x265)+'&nbsp'+_0x52d86c(0x2e0)+_0x52d86c(0x1ff)+'nbsp;'+_0x52d86c(0x226)+_0x52d86c(0x2b6))+(_0x411538[_0x52d86c(0x27e)+'lease']?_0x52d86c(0x1f5)+'\x20styl'+_0x52d86c(0x25d)+_0x52d86c(0x2b2)+_0x52d86c(0x22b)+_0x52d86c(0x273)+_0x52d86c(0x306)+_0x52d86c(0x259)+_0x52d86c(0x2a7)+_0x52d86c(0x208):_0x52d86c(0x1f5)+_0x52d86c(0x2f3)+_0x52d86c(0x25d)+_0x52d86c(0x2b2)+'#81C7'+_0x52d86c(0x281)+'✅\x20Sta'+_0x52d86c(0x296)+_0x52d86c(0x208))+(_0x52d86c(0x226)+'\x20\x20\x20\x20<'+_0x52d86c(0x2f2)+_0x52d86c(0x226)),_0xbec505[_0x52d86c(0x2c7)+_0x52d86c(0x24f)][_0x52d86c(0x246)+_0x52d86c(0x262)+'re'](_0x34b3a3,_0xbec505);const _0x35cdfb=_0x411538[_0x52d86c(0x322)+'s'][_0x52d86c(0x2be)+'r'](_0x38016e=>!_0x38016e['name']['endsW'+_0x52d86c(0x1b7)]('.zip')&&!_0x38016e[_0x52d86c(0x225)][_0x52d86c(0x1d4)+'ith'](_0x52d86c(0x23c)+'gz'));if(_0x35cdfb[_0x52d86c(0x23e)+'h']===0x0){_0xbec505[_0x52d86c(0x2de)+_0x52d86c(0x1be)]=_0x52d86c(0x248)+_0x52d86c(0x252)+_0x52d86c(0x2ac)+_0x52d86c(0x227)+_0x52d86c(0x2e4)+_0x52d86c(0x1b1)+'\x20ada\x20'+_0x52d86c(0x297)+_0x52d86c(0x21a)+_0x52d86c(0x219)+_0x52d86c(0x285)+_0x52d86c(0x21b)+'untuk'+_0x52d86c(0x1e3)+_0x52d86c(0x266)+'.</di'+'v>';return;}_0x35cdfb['forEa'+'ch'](_0xae6192=>{const _0x4d935e=_0x52d86c,_0x416b19=buildAssetCard(_0xae6192);_0xbec505['appen'+_0x4d935e(0x22c)+'d'](_0x416b19);});}function buildAssetCard(_0x4e09a6){const _0x84a632=a0_0x10bbd7,_0x2bd27a=_0x4e09a6['name'],_0x467046=formatBytes(_0x4e09a6['size']),_0x162241=_0x4e09a6[_0x84a632(0x200)+_0x84a632(0x1de)+'ount'][_0x84a632(0x1d3)+_0x84a632(0x2cd)+_0x84a632(0x243)](_0x84a632(0x1fa)),{platform:_0x216694,icon:_0xb7c683,description:_0x52dcbb,recommended:_0x435a09}=categorizeAsset(_0x2bd27a),_0x2732d7=document[_0x84a632(0x2b4)+_0x84a632(0x267)+_0x84a632(0x2aa)](_0x84a632(0x29a));_0x2732d7[_0x84a632(0x252)+_0x84a632(0x30b)]=_0x84a632(0x200)+'oad-c'+_0x84a632(0x2b9),_0x2732d7[_0x84a632(0x22d)+_0x84a632(0x1ec)+'te'](_0x84a632(0x21c),_0x84a632(0x2f0)+'n'),_0x2732d7[_0x84a632(0x22d)+_0x84a632(0x1ec)+'te'](_0x84a632(0x2f5)+_0x84a632(0x253),'0');const _0x124824=_0x84a632(0x303)+Math[_0x84a632(0x2af)+'m']()[_0x84a632(0x1e0)+_0x84a632(0x2df)](0x24)[_0x84a632(0x302)+'r'](0x2,0x9);obfuscatedDownloads[_0x124824]=obfuscateUrl(_0x4e09a6[_0x84a632(0x298)+'er_do'+_0x84a632(0x271)+_0x84a632(0x320)]),_0x2732d7['inner'+_0x84a632(0x1be)]=_0x84a632(0x226)+_0x84a632(0x234)+_0x84a632(0x1c6)+_0x84a632(0x23d)+'\x22plat'+_0x84a632(0x2c8)+'><i\x20c'+_0x84a632(0x23d)+'\x22'+_0xb7c683+(_0x84a632(0x2fa)+'>')+_0x216694+(_0x84a632(0x28a)+_0x84a632(0x2a9)+_0x84a632(0x286)+_0x84a632(0x201))+_0x2bd27a+(_0x84a632(0x268)+_0x84a632(0x226)+_0x84a632(0x234)+'p>')+_0x52dcbb+(_0x84a632(0x2ba)+_0x84a632(0x286)+_0x84a632(0x235))+(_0x435a09?'<span'+_0x84a632(0x1eb)+'s=\x22ba'+'dge\x20b'+'adge-'+_0x84a632(0x31a)+_0x84a632(0x1d2)+_0x84a632(0x291)+_0x84a632(0x2a4)+_0x84a632(0x324)+_0x84a632(0x2d3)+'>':'')+(_0x84a632(0x226)+'\x20\x20\x20\x20<'+_0x84a632(0x1c6)+_0x84a632(0x23d)+_0x84a632(0x1ce)+'-foot'+'er\x22>\x0a'+_0x84a632(0x286)+_0x84a632(0x286)+_0x84a632(0x232)+'an><i'+_0x84a632(0x1eb)+'s=\x22fa'+_0x84a632(0x309)+'d\x20fa-'+'downl'+'oad\x22\x20'+_0x84a632(0x2ed)+_0x84a632(0x1b2)+_0x84a632(0x2f1)+_0x84a632(0x325)+_0x84a632(0x315)+_0x84a632(0x1ca))+_0x162241+(_0x84a632(0x2d6)+_0x84a632(0x250)+'middo'+_0x84a632(0x2eb))+_0x467046+(_0x84a632(0x238)+_0x84a632(0x218)+_0x84a632(0x286)+_0x84a632(0x286)+'<i\x20cl'+_0x84a632(0x236)+'fa-so'+_0x84a632(0x2b1)+'a-arr'+_0x84a632(0x1d9)+_0x84a632(0x1ad)+_0x84a632(0x2e1)+'\x22></i'+_0x84a632(0x2a9)+_0x84a632(0x286)+_0x84a632(0x28a)+'>\x0a\x20\x20\x20'+'\x20');const _0x356e6c=_0x66f1d1=>{const _0xd75261=_0x84a632;_0x66f1d1[_0xd75261(0x26f)+_0xd75261(0x2b3)+_0xd75261(0x261)](),_0x66f1d1[_0xd75261(0x1ae)+_0xd75261(0x30a)+'ation']();const _0x4bc2c2=obfuscatedDownloads[_0x124824];if(_0x4bc2c2){const _0x373cc2=deobfuscateUrl(_0x4bc2c2);triggerDownload(_0x373cc2);const _0x2a6880=parseInt(localStorage[_0xd75261(0x1cc)+'em']('sb_we'+_0xd75261(0x25b)+'nload'+'s')||'0');localStorage[_0xd75261(0x310)+'em'](_0xd75261(0x2da)+'b_dow'+'nload'+'s',_0x2a6880+0x1);const _0x267c83=document['getEl'+_0xd75261(0x211)+_0xd75261(0x2a1)](_0xd75261(0x28f)+_0xd75261(0x1d7)+_0xd75261(0x318)+_0xd75261(0x278)+'t');if(_0x267c83){const _0xa126a3=parseInt(_0x267c83[_0xd75261(0x30e)+'onten'+'t']['repla'+'ce'](/[^0-9]/g,''))||0x0,_0x16f18c=_0xa126a3+0x1;_0x267c83[_0xd75261(0x30e)+_0xd75261(0x20f)+'t']=_0x16f18c[_0xd75261(0x1d3)+'aleSt'+_0xd75261(0x243)](_0xd75261(0x1fa)),_0x267c83[_0xd75261(0x2ed)]['trans'+_0xd75261(0x274)]='scale'+'(1.08'+')',_0x267c83['style'][_0xd75261(0x307)+_0xd75261(0x257)]=_0xd75261(0x307)+_0xd75261(0x1f7)+_0xd75261(0x213)+_0xd75261(0x1f9),setTimeout(()=>{const _0x348e99=_0xd75261;_0x267c83[_0x348e99(0x2ed)][_0x348e99(0x307)+_0x348e99(0x274)]=_0x348e99(0x323)+'(1)';},0xc8);}}};return _0x2732d7['addEv'+_0x84a632(0x27b)+_0x84a632(0x2d0)+'r'](_0x84a632(0x299),_0x356e6c),_0x2732d7[_0x84a632(0x2a3)+_0x84a632(0x27b)+_0x84a632(0x2d0)+'r']('keydo'+'wn',_0x19dc7c=>{const _0x9cbb97=_0x84a632;(_0x19dc7c['key']===_0x9cbb97(0x254)||_0x19dc7c['key']==='\x20')&&_0x356e6c(_0x19dc7c);}),_0x2732d7;}function categorizeAsset(_0x560eae){const _0x4c1909=a0_0x10bbd7,_0x452a76=_0x560eae[_0x4c1909(0x207)+_0x4c1909(0x31c)+'e']();if(_0x452a76[_0x4c1909(0x1d1)+_0x4c1909(0x2c6)]('arm64'+_0x4c1909(0x289))||_0x452a76[_0x4c1909(0x1d1)+_0x4c1909(0x2c6)](_0x4c1909(0x1ab)))return{'platform':'Andro'+_0x4c1909(0x1b6)+_0x4c1909(0x314),'icon':_0x4c1909(0x290)+'ands\x20'+'fa-an'+'droid','description':_0x4c1909(0x1c5)+_0x4c1909(0x2ae)+_0x4c1909(0x317)+'\x2064-b'+_0x4c1909(0x216)+'rm64-'+_0x4c1909(0x1b8)+_0x4c1909(0x1c2)+_0x4c1909(0x31d)+_0x4c1909(0x249)+_0x4c1909(0x27d),'recommended':!![]};if(_0x452a76['inclu'+_0x4c1909(0x2c6)](_0x4c1909(0x245)+'bi')||_0x452a76[_0x4c1909(0x1d1)+_0x4c1909(0x2c6)](_0x4c1909(0x2d1)+'7')||_0x452a76[_0x4c1909(0x1d1)+_0x4c1909(0x2c6)](_0x4c1909(0x2f6)))return{'platform':_0x4c1909(0x1f8)+_0x4c1909(0x1b6)+_0x4c1909(0x2dc),'icon':_0x4c1909(0x290)+_0x4c1909(0x229)+'fa-an'+'droid','description':_0x4c1909(0x1c5)+_0x4c1909(0x1ba)+'ama\x203'+_0x4c1909(0x293)+'\x20(arm'+_0x4c1909(0x22f)+_0x4c1909(0x221),'recommended':![]};if(_0x452a76[_0x4c1909(0x1d1)+_0x4c1909(0x2c6)](_0x4c1909(0x2bc)+'4')&&_0x452a76[_0x4c1909(0x1d1)+'des'](_0x4c1909(0x1ed)))return{'platform':_0x4c1909(0x1f8)+_0x4c1909(0x240)+_0x4c1909(0x233),'icon':'fa-br'+_0x4c1909(0x229)+'fa-an'+'droid','description':_0x4c1909(0x1c5)+_0x4c1909(0x2d5)+_0x4c1909(0x21f)+_0x4c1909(0x280)+_0x4c1909(0x311)+_0x4c1909(0x214)+_0x4c1909(0x2bc)+'4.','recommended':![]};if(_0x452a76[_0x4c1909(0x1d1)+'des'](_0x4c1909(0x231)+_0x4c1909(0x29f))&&_0x452a76[_0x4c1909(0x1d4)+_0x4c1909(0x1b7)]('.apk'))return{'platform':_0x4c1909(0x1f8)+_0x4c1909(0x202)+_0x4c1909(0x316)+'al','icon':_0x4c1909(0x290)+_0x4c1909(0x229)+'fa-an'+_0x4c1909(0x2a2),'description':_0x4c1909(0x304)+_0x4c1909(0x2ce)+_0x4c1909(0x283)+_0x4c1909(0x2d9)+_0x4c1909(0x2ab)+'\x20arsi'+_0x4c1909(0x31b)+_0x4c1909(0x1b4)+_0x4c1909(0x220),'recommended':![]};if(_0x452a76[_0x4c1909(0x1d4)+_0x4c1909(0x1b7)](_0x4c1909(0x2f8)))return{'platform':_0x4c1909(0x1f8)+'id','icon':'fa-br'+'ands\x20'+_0x4c1909(0x255)+_0x4c1909(0x2a2),'description':_0x4c1909(0x1fe)+_0x4c1909(0x304)+_0x4c1909(0x2d9)+'Andro'+_0x4c1909(0x1bb),'recommended':![]};if(_0x452a76[_0x4c1909(0x1d1)+'des']('.exe')||_0x452a76[_0x4c1909(0x1d1)+_0x4c1909(0x2c6)](_0x4c1909(0x2d8)+'ws')||_0x452a76['inclu'+_0x4c1909(0x2c6)]('win'))return{'platform':_0x4c1909(0x2b7)+'ws','icon':_0x4c1909(0x290)+_0x4c1909(0x229)+_0x4c1909(0x251)+_0x4c1909(0x1e1),'description':'Insta'+_0x4c1909(0x2a8)+_0x4c1909(0x1cf)+'\x20Wind'+_0x4c1909(0x31e)+_0x4c1909(0x20d),'recommended':![]};if(_0x452a76[_0x4c1909(0x1d1)+_0x4c1909(0x2c6)](_0x4c1909(0x2c9)+_0x4c1909(0x2a6))||_0x452a76['inclu'+_0x4c1909(0x2c6)]('linux'))return{'platform':_0x4c1909(0x30d),'icon':_0x4c1909(0x290)+_0x4c1909(0x229)+'fa-li'+'nux','description':_0x4c1909(0x1e7)+_0x4c1909(0x301)+'ntuk\x20'+_0x4c1909(0x210)+_0x4c1909(0x1ac)+_0x4c1909(0x241)+'x.','recommended':![]};if(_0x452a76[_0x4c1909(0x1d4)+_0x4c1909(0x1b7)](_0x4c1909(0x205))||_0x452a76['inclu'+_0x4c1909(0x2c6)](_0x4c1909(0x25f))||_0x452a76[_0x4c1909(0x1d1)+_0x4c1909(0x2c6)](_0x4c1909(0x217)))return{'platform':_0x4c1909(0x20e),'icon':_0x4c1909(0x290)+_0x4c1909(0x229)+_0x4c1909(0x25a)+_0x4c1909(0x29d),'description':_0x4c1909(0x1c7)+_0x4c1909(0x2a8)+_0x4c1909(0x1cf)+'\x20macO'+'S.','recommended':![]};if(_0x452a76[_0x4c1909(0x1d4)+_0x4c1909(0x1b7)](_0x4c1909(0x206)))return{'platform':_0x4c1909(0x2b7)+'ws\x20MS'+'IX','icon':_0x4c1909(0x290)+_0x4c1909(0x229)+_0x4c1909(0x251)+_0x4c1909(0x1e1),'description':_0x4c1909(0x1bd)+_0x4c1909(0x1f4)+_0x4c1909(0x1f6)+'k\x20Win'+_0x4c1909(0x27c)+_0x4c1909(0x256)+'.','recommended':![]};return{'platform':_0x4c1909(0x1bf),'icon':'fa-so'+_0x4c1909(0x2b1)+'a-fil'+'e','description':name,'recommended':![]};}function a0_0x3c25(){const _0x232eb6=['C2v0CW','DgH1yKq','DgfNx24','q29SB3i','ie1tsvG','phnWyw4','ihvUDhu','zM9YBsa','qw5KCM8','zwfZzq','AwqTsuq','CJOG','zL49iIm','zw11yxq','rMLSzsa','zg90oYy','zg93BMW','pgGZpG','AwqGvw4','yw5PBwe','zunOAwW','lMrTzW','lM1ZAxG','Dg9mB3C','C3bHBJ4','C2vHCMm','CgLUBMu','zwXHEq','yxrLC3q','mc8Xms4','BwfJt1m','B250zw4','zgLZDhi','zw1LBNq','kcGOlIS','mc4YCYa','z2THDca','zM8TyMe','AxqGkge','BwfJ','BJ4kica','ihLHBMC','CMLSAxm','zwrPysa','CM9Szq','mJqYnJuYnNDkzMLqEa','DgfPBMu','yxrVCIa','CM9Pzc4','DJDHks4','yxnLCW','ierPDgu','igrHCge','BMfTzq','cIaGica','B3iTC3q','EcaZmha','yw5KCYa','idWVzgK','i0zgqJC','zenOAwW','C2v0qxq','igvYCM8','zwfIAs0','AtWVB3a','Dw5PDMu','ica8C3a','nL82na','icaGidW','icaG','yxnZpsi','mufpy3zmqq','pc9ZCge','Aw9U','ieTc','CgfKzgK','lNrHCI4','BgfZCZ0','BgvUz3q','BNuTyNq','AwqGEdG','ieXPBNu','zgL2pGO','CMLUzW','nta3mdmWogrls1nssa','yxjTzwe','Aw5Zzxi','CMjPDgS','pgrPDIa','zgfZAwS','CMvTB3y','zMXLEeq','Cg9ZlW','BM5LCG','BujLyxq','De5Vzgu','AgfUicy','zMeTD2K','y2XHC3m','zgv4','rw50zxi','zMeTyw4','u3rVCMu','AxrPB24','zxjZAtO','lxjLBgu','zMeTyxa','yL9KB3C','yMLUza','zt0Iy28','iMXVywq','BwfJB3m','DfrVCa','yxvSDa','DejLzM8','CgfNzt0','yvTOCMu','B25NpIa','AsbPBMK','zuvSzw0','pc9OmZ4','odu2mdjuuvLqy0C','AhvIlMm','As5NAxq','BgLUA3m','Dwf0igq','BNrLBNq','ChjLDMu','BMXVywq','D25SB2e','ywz0yxi','neq7iJ4','zM9YBq','mZbKs1POuwG','zhvOyw4','Ahr0Chm','lwnVDw4','EcbYz2i','B25NpG','zw50tgK','zg93CYa','yw4U','ChjLCMu','DcbTzw0','yxrHDsa','odq7iJ4','icdWN6EQifa','C2fSihu','v2LKDgG','ihrLCNm','icaGica','ndKYodK4n05eq2rIAq','u3rYzwe','lxy4yq','pc9KAxy','zMXLEa','ie1c','BguTBwu','ywrZ','Dg90ywW','zMeTyNi','zci+uMu','imk3ifvU','mI1IAxq','yM9KEq','Dgf0CY0','yMXLpc8','zMLSzsa','yNjVD3m','y2XPy2S','zgL2','B2fKlxm','B3DUBg8','CgXL','ywrVDW','CNnHBa','Aw5PlG','qNLjza','zhjVAwq','ywrKrxy','y29TBwu','DgLVBJ4','BwfNzq','yxnLpc8','BgXLCIa','pGOGica','zw50','C2vTDwe','psjLCNi','BM9Uzq','ieHqig0','CMfUzg8','Dg9Y','BgLKigy','Bg9YoIa','BNrezwy','y3jLyxq','BgvMDa','icaGia','v2LUzg8','B2zMC2u','yxjK','pc9WpGO','DgvtDhi','EdG2xZy','Dc12zxi','zMLSDgu','AxbOzxi','ksSPkYK','AwXPCYa','CMDIysG','lM1VyMK','lJWVzgK','B3vUDa','zgvZ','CgfYzw4','zM9YBsi','lMfWCgK','mcWGmti','C2fHDca','igrHCMK','ywXLu3q','BML2zxi','tgLZDa','C3rLBMu','yxjTlxy','zgLZCgW','l3nWyw4','qMvSDw0','igvTDwW','ihvUzhu','rhvZA0m','D2LUzg8','BNr1AYa','C2jFD2u','yw1L','txy3','DMfSDwu','Aw5Uzxi','Aw5N','oYzTAwq','lwLJB24','B3jTigW','Aw5Nlxm','yxrLiJ4','zgL2pLy','AxjLy3q','B20VCMu','C2LVBI0','AgvPz2G','u2vSzwm','DdSG','mty1ntq0ohPyq25Lua','C3r5Bgu','Cgv0ywW','mtaWjq','yNv0Dg8','z2LUlxi','l2rPDJ4','ihn0EwW','Dg9W','DgfIAw4','yxjTDJC','ohHVDgPIza','lMfWAW','C2uTzhi','iJ48l2K','yIbbueK','DJ4kica','x3nIqMe','pg9WDgK','mJu3mZaXnJbqyKrWtMy','D2LKDgG','ywDLihu','C3vIC3q','zgXF','qvblihu','C2nYB2W','8j+NQIbqCMu','DhjHBNm','Dgv4Da','lxnVBgK','CM9WywC','tMfTzq','AsbhAxq','tgLUDxG','Dgv4Dem','AhjLzG','C2v0sxq','CgvYyw4','y2HHBMC','zurVD24','tty0','nhb4oYi','AxzLCNm','B2rLCM4','Bg9Hzhm','zM9Yrwe','CMvJB20','DgvRDhu','zxjdyxm','A29Tzw4','B3DZide','lcaWlJK','zf91CMW','re9nq28','yxnZzxq','C2nHBgu','BMrLzdW','AwDODdO','ywjZB2W','z2v0rwW','C3rYB24','yxjTnJq','Awj1C2K','D24GzgW','C3rVCfa','CMvSzwe','CM91BMq','vgLKywS','psjTyxi','yxbWzw4','CIbbBMq','yMfJA2C','AwqGqvi','AxrO','DJHHks4','CNvJDg8','ieHqigW','AwqU','C2vSAw4','ugfRzxq','sfrnta','t3rOzxi','BgvHC2u','y29SDw0','ierPCMu','Dwf0ihi','jM5IC3a','vw50DwS','zgL2igm','sw5ZDge','ndm2mtq2m0nXEK9ctW','CxvLCNK','pJWVAt4','pc9ZDhi','z2v0sxq','BNvTzxi','iMnHCMq','Dw50DwS','tg9Hzgu','Aw5JBhu','BwvUzgu','Dg9mB2m','zw5KC1C','C2uTyxm','zwrPys4','lwrVD24','ldaSmc4','B3CTzg8','ChvIBgK','z2v0qxq','CY1JB24','Dgf0zsi','B2fKx2m','DgLVBKq','Dg9tDhi','BMrVD3m','ifn0ywi','ihzLCNm','DxjHDgK','ysGWlda','ywXLrge','qxbWsw0','Bg9UzW','DJ5nzw0','yw46idW','ignSyxm','DhjPyNu','yxbR','shvIlI4','yxbWBhK'];a0_0x3c25=function(){return _0x232eb6;};return a0_0x3c25();}function a0_0x1ced(_0x291238,_0x169a28){_0x291238=_0x291238-0x1a9;const _0x18ec5b=a0_0x3c25();let _0x580a48=_0x18ec5b[_0x291238];if(a0_0x1ced['fqsNbf']===undefined){var _0x320675=function(_0x534577){const _0xc5bd2a='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';let _0x4baf6a='',_0x1942a4='',_0x5e98d3=_0x4baf6a+_0x320675,_0x2f2162=(''+function(){return 0x0;})['indexOf']('\x0a')!==-0x1;for(let _0x3cfd92=0x0,_0x3b3878,_0x2f1124,_0x5ba62f=0x0;_0x2f1124=_0x534577['charAt'](_0x5ba62f++);~_0x2f1124&&(_0x3b3878=_0x3cfd92%0x4?_0x3b3878*0x40+_0x2f1124:_0x2f1124,_0x3cfd92++%0x4)?_0x4baf6a+=_0x2f2162||_0x5e98d3['charCodeAt'](_0x5ba62f+0xa)-0xa!==0x0?String['fromCharCode'](0xff&_0x3b3878>>(-0x2*_0x3cfd92&0x6)):_0x3cfd92:0x0){_0x2f1124=_0xc5bd2a['indexOf'](_0x2f1124);}for(let _0x29fab9=0x0,_0x1f97f1=_0x4baf6a['length'];_0x29fab9<_0x1f97f1;_0x29fab9++){_0x1942a4+='%'+('00'+_0x4baf6a['charCodeAt'](_0x29fab9)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x1942a4);};a0_0x1ced['YNmAFi']=_0x320675,a0_0x1ced['hPnfoT']={},a0_0x1ced['fqsNbf']=!![];}const _0x3c25a6=_0x18ec5b[0x0],_0x1ced94=_0x291238+_0x3c25a6,_0x4d003b=a0_0x1ced['hPnfoT'][_0x1ced94];if(!_0x4d003b){const _0x206364=function(_0x229ab5){this['RkyaWZ']=_0x229ab5,this['jlupww']=[0x1,0x0,0x0],this['SEidro']=function(){return'newState';},this['aVgwFj']='\x5c\x77\x2b\x20\x2a\x5c\x28\x5c\x29\x20\x2a\x7b\x5c\x77\x2b\x20\x2a',this['JDmFSF']='\x5b\x27\x7c\x22\x5d\x2e\x2b\x5b\x27\x7c\x22\x5d\x3b\x3f\x20\x2a\x7d';};_0x206364['prototype']['yViPEZ']=function(){const _0x50fcf1=new RegExp(this['aVgwFj']+this['JDmFSF']),_0x444362=_0x50fcf1['test'](this['SEidro']['toString']())?--this['jlupww'][0x1]:--this['jlupww'][0x0];return this['DmmMrF'](_0x444362);},_0x206364['prototype']['DmmMrF']=function(_0xb985f4){if(!Boolean(~_0xb985f4))return _0xb985f4;return this['sRpktA'](this['RkyaWZ']);},_0x206364['prototype']['sRpktA']=function(_0x13a69f){for(let _0x453d09=0x0,_0xbfc94d=this['jlupww']['length'];_0x453d09<_0xbfc94d;_0x453d09++){this['jlupww']['push'](Math['round'](Math['random']())),_0xbfc94d=this['jlupww']['length'];}return _0x13a69f(this['jlupww'][0x0]);},(''+function(){return 0x0;})['indexOf']('\x0a')===-0x1&&new _0x206364(a0_0x1ced)['yViPEZ'](),_0x580a48=a0_0x1ced['YNmAFi'](_0x580a48),a0_0x1ced['hPnfoT'][_0x1ced94]=_0x580a48;}else _0x580a48=_0x4d003b;return _0x580a48;}function formatBytes(_0x4c23f1){const _0x2e1314=a0_0x10bbd7;if(_0x4c23f1<0x400*0x400)return(_0x4c23f1/0x400)['toFix'+'ed'](0x1)+_0x2e1314(0x23a);return(_0x4c23f1/(0x400*0x400))['toFix'+'ed'](0x1)+_0x2e1314(0x28c);}function showLoading(_0x264ff8){const _0x553f4d=a0_0x10bbd7;_0x264ff8[_0x553f4d(0x2de)+_0x553f4d(0x1be)]='\x0a\x20\x20\x20\x20'+_0x553f4d(0x234)+_0x553f4d(0x1c6)+_0x553f4d(0x23d)+_0x553f4d(0x25e)+'ing-s'+_0x553f4d(0x1dd)+'>\x0a\x20\x20\x20'+'\x20\x20\x20\x20\x20'+_0x553f4d(0x234)+'div\x20c'+_0x553f4d(0x23d)+_0x553f4d(0x25e)+_0x553f4d(0x2e3)+_0x553f4d(0x20a)+'r\x22></'+_0x553f4d(0x242)+_0x553f4d(0x286)+_0x553f4d(0x286)+'\x20\x20<di'+_0x553f4d(0x1e9)+_0x553f4d(0x26d)+_0x553f4d(0x272)+'\x20rili'+'s\x20dar'+_0x553f4d(0x30c)+_0x553f4d(0x1ee)+_0x553f4d(0x2c4)+_0x553f4d(0x2fc)+_0x553f4d(0x286)+_0x553f4d(0x22a)+'v>\x0a\x20\x20'+'\x20\x20';}function showError(_0xd46a01,_0x1bb454){const _0x14d5ee=a0_0x10bbd7;_0xd46a01[_0x14d5ee(0x2de)+'HTML']=_0x14d5ee(0x248)+'class'+_0x14d5ee(0x2ac)+_0x14d5ee(0x227)+_0x14d5ee(0x2e4)+_0x1bb454+(_0x14d5ee(0x28a)+'>');}function createPetals(){const _0x5e5609=a0_0x10bbd7,_0x37fc03=document[_0x5e5609(0x1a9)+'ement'+_0x5e5609(0x2a1)](_0x5e5609(0x2ee)+_0x5e5609(0x1dc)+_0x5e5609(0x21e)+'r');if(!_0x37fc03)return;const _0x4db55e=0xf;for(let _0xa6b429=0x0;_0xa6b429<_0x4db55e;_0xa6b429++){setTimeout(()=>{const _0x48e45d=_0x5e5609,_0x46b6e0=document['creat'+'eElem'+_0x48e45d(0x2aa)](_0x48e45d(0x29a));_0x46b6e0[_0x48e45d(0x252)+_0x48e45d(0x2cf)]['add'](_0x48e45d(0x2ee));const _0xe0118c=Math[_0x48e45d(0x2af)+'m']()*0x64,_0x5b1dcb=Math['rando'+'m']()*0x8+0x6,_0x3ade49=Math['rando'+'m']()*0xa+0xa,_0x58d436=Math[_0x48e45d(0x2af)+'m']()*0xa;_0x46b6e0[_0x48e45d(0x2ed)]['left']=_0xe0118c+'vw',_0x46b6e0[_0x48e45d(0x2ed)]['width']=_0x5b1dcb+'px',_0x46b6e0['style'][_0x48e45d(0x2e9)+'t']=_0x5b1dcb+'px',_0x46b6e0['style'][_0x48e45d(0x203)+_0x48e45d(0x1df)+_0x48e45d(0x1e4)+'on']=_0x3ade49+'s',_0x46b6e0[_0x48e45d(0x2ed)][_0x48e45d(0x203)+'tionD'+_0x48e45d(0x20b)]=_0x58d436+'s',_0x37fc03[_0x48e45d(0x1b3)+'dChil'+'d'](_0x46b6e0);},_0xa6b429*0x12c);}}
+/**
+ * StreamBeats Landing Page Script
+ * Official Website: https://streambeats.pages.dev/
+ * GitHub: https://github.com/B7ByteMe/StreamBeats
+ */
+
+const GITHUB_OWNER = 'B7ByteMe';
+const GITHUB_REPO = 'StreamBeats';
+const GITHUB_API = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/releases`;
+const BASE_DOWNLOADS_COUNT = 1247000;
+
+let allReleases = [];
+let currentReleaseIndex = 0;
+let selectedAndroidApkKey = 'arm64'; // default: arm64-v8a
+
+// ============================================================
+// UTILITY FUNCTIONS
+// ============================================================
+
+function formatBytes(bytes) {
+    if (!bytes || isNaN(bytes)) return '0 B';
+    if (bytes < 1024 * 1024) {
+        return (bytes / 1024).toFixed(1) + ' KB';
+    }
+    return (bytes / (1024 * 1024)).toFixed(1) + ' MB';
+}
+
+function formatDate(dateStr) {
+    try {
+        const date = new Date(dateStr);
+        return date.toLocaleDateString('id-ID', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+    } catch {
+        return dateStr;
+    }
+}
+
+function triggerDownload(url, filename) {
+    if (!url) return;
+    const a = document.createElement('a');
+    a.style.display = 'none';
+    a.href = url;
+    if (filename) a.download = filename;
+    a.target = '_blank';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+
+    // Track download in localStorage
+    trackDownload();
+}
+
+function trackDownload() {
+    const key = 'sb_web_downloads';
+    const current = parseInt(localStorage.getItem(key) || '0', 10);
+    localStorage.setItem(key, current + 1);
+
+    const countElem = document.getElementById('total-downloads-count');
+    if (countElem) {
+        const raw = parseInt(countElem.textContent.replace(/[^0-9]/g, ''), 10) || BASE_DOWNLOADS_COUNT;
+        const updated = raw + 1;
+        countElem.textContent = updated.toLocaleString('id-ID');
+        countElem.style.transform = 'scale(1.08)';
+        countElem.style.transition = 'transform 0.2s ease';
+        setTimeout(() => {
+            countElem.style.transform = 'scale(1)';
+        }, 200);
+    }
+}
+
+// ============================================================
+// ASSET CATEGORIZATION
+// ============================================================
+
+function categorizeAssets(assets = []) {
+    const result = {
+        android: {
+            arm64: null,
+            universal: null,
+            armv7: null,
+            x86_64: null,
+            others: []
+        },
+        windows: {
+            installer: null,
+            portable: null,
+            others: []
+        },
+        linux: {
+            tarball: null,
+            deb: null,
+            appimage: null,
+            others: []
+        },
+        macos: {
+            dmg: null,
+            pkg: null,
+            others: []
+        },
+        ios: {
+            ipa: null,
+            others: []
+        }
+    };
+
+    assets.forEach(asset => {
+        const name = (asset.name || '').toLowerCase();
+
+        // 1. Android APKs
+        if (name.endsWith('.apk')) {
+            if (name.includes('arm64-v8a') || name.includes('arm64')) {
+                result.android.arm64 = asset;
+            } else if (name.includes('universal')) {
+                result.android.universal = asset;
+            } else if (name.includes('armeabi-v7a') || name.includes('armv7') || name.includes('arm-v7')) {
+                result.android.armv7 = asset;
+            } else if (name.includes('x86_64') || name.includes('x64')) {
+                result.android.x86_64 = asset;
+            } else {
+                result.android.others.push(asset);
+            }
+        }
+        // 2. Windows (.exe, .msi, win .zip)
+        else if (name.endsWith('.exe') || name.endsWith('.msix') || name.endsWith('.msi')) {
+            result.windows.installer = asset;
+        } else if (name.includes('win') && name.endsWith('.zip')) {
+            result.windows.portable = asset;
+        }
+        // 3. Linux (.tar.gz, .deb, .rpm, .appimage, linux .zip)
+        else if (name.includes('linux') || name.endsWith('.deb') || name.endsWith('.rpm') || name.endsWith('.appimage')) {
+            if (name.endsWith('.tar.gz') || name.endsWith('.tgz')) {
+                result.linux.tarball = asset;
+            } else if (name.endsWith('.deb')) {
+                result.linux.deb = asset;
+            } else if (name.endsWith('.appimage')) {
+                result.linux.appimage = asset;
+            } else {
+                result.linux.others.push(asset);
+            }
+        }
+        // 4. macOS (.dmg, .pkg, macos .zip)
+        else if (name.endsWith('.dmg') || name.endsWith('.pkg') || (name.includes('mac') && name.endsWith('.zip'))) {
+            if (name.endsWith('.dmg')) {
+                result.macos.dmg = asset;
+            } else if (name.endsWith('.pkg')) {
+                result.macos.pkg = asset;
+            } else {
+                result.macos.others.push(asset);
+            }
+        }
+        // 5. iOS (.ipa)
+        else if (name.endsWith('.ipa') || name.includes('ios')) {
+            result.ios.ipa = asset;
+        }
+    });
+
+    return result;
+}
+
+// ============================================================
+// RENDER RELEASE TO DOM
+// ============================================================
+
+function renderRelease(index) {
+    const container = document.getElementById('release-assets');
+    if (!container) return;
+
+    const release = allReleases[index];
+    if (!release) {
+        container.innerHTML = `
+            <div class="error-state">
+                <p>Tidak ada rilis yang dapat dimuat. Kunjungi <a href="https://github.com/${GITHUB_OWNER}/${GITHUB_REPO}/releases" target="_blank">GitHub Releases</a>.</p>
+            </div>
+        `;
+        return;
+    }
+
+    currentReleaseIndex = index;
+    const assets = release.assets || [];
+    const cat = categorizeAssets(assets);
+
+    const releaseTag = release.tag_name || release.name || 'v3.2.6';
+    const releaseDate = formatDate(release.published_at || release.created_at);
+    const isPreRelease = !!release.prerelease;
+
+    // Helper to get active Android asset
+    let activeAndroidAsset = cat.android[selectedAndroidApkKey];
+    if (!activeAndroidAsset) {
+        // Fallback to first available android asset
+        activeAndroidAsset = cat.android.arm64 || cat.android.universal || cat.android.armv7 || cat.android.x86_64 || cat.android.others[0];
+        if (activeAndroidAsset) {
+            if (activeAndroidAsset === cat.android.arm64) selectedAndroidApkKey = 'arm64';
+            else if (activeAndroidAsset === cat.android.universal) selectedAndroidApkKey = 'universal';
+            else if (activeAndroidAsset === cat.android.armv7) selectedAndroidApkKey = 'armv7';
+            else if (activeAndroidAsset === cat.android.x86_64) selectedAndroidApkKey = 'x86_64';
+        }
+    }
+
+    // Windows asset
+    const winAsset = cat.windows.installer || cat.windows.portable || cat.windows.others[0];
+
+    // Linux asset
+    const linuxAsset = cat.linux.tarball || cat.linux.deb || cat.linux.appimage || cat.linux.others[0];
+
+    // macOS asset
+    const macAsset = cat.macos.dmg || cat.macos.pkg || cat.macos.others[0];
+
+    // iOS asset
+    const iosAsset = cat.ios.ipa || cat.ios.others[0];
+
+    container.innerHTML = `
+        <!-- Release Info Banner -->
+        <div class="release-info-banner">
+            <div class="release-info-left">
+                <span class="release-tag-badge"><i class="fa-solid fa-tag"></i> ${escapeHtml(releaseTag)}</span>
+                <span class="release-date-text"><i class="fa-regular fa-calendar"></i> ${escapeHtml(releaseDate)}</span>
+                <span class="release-status-badge ${isPreRelease ? 'badge-gold' : 'badge-green'}">
+                    ${isPreRelease ? '⚠️ Pre-release' : '✅ Rilis Stabil'}
+                </span>
+            </div>
+            <div class="release-info-right">
+                <a href="${release.html_url || `https://github.com/${GITHUB_OWNER}/${GITHUB_REPO}/releases/tag/${releaseTag}`}" target="_blank" class="release-notes-link">
+                    Catatan Rilis di GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Primary Platforms Grid (Android, Windows, Linux) -->
+        <div class="platform-cards-grid">
+            
+            <!-- 1. KOTAK KHUSUS ANDROID -->
+            <div class="platform-card featured-card android-card" id="card-android">
+                <div class="platform-card-header">
+                    <div class="platform-icon-wrap platform-icon-android">
+                        <i class="fa-brands fa-android"></i>
+                    </div>
+                    <span class="platform-badge badge-green">Paling Populer</span>
+                </div>
+
+                <div class="platform-title-area">
+                    <h3>Android</h3>
+                    <p>Mendukung Android 7.0 hingga Android 15+. Tanpa iklan, lirik karaoke sinkron, dan hemat daya.</p>
+                </div>
+
+                <!-- Pilihan Jenis APK -->
+                <div class="apk-selector-container">
+                    <div class="apk-selector-label">
+                        <span><i class="fa-solid fa-microchip"></i> Pilih Arsitektur APK:</span>
+                        <span id="selected-apk-badge" style="color: #3DDC84; font-weight:700;">64-bit (Modern)</span>
+                    </div>
+                    <div class="apk-pills-grid">
+                        <button type="button" class="apk-pill ${selectedAndroidApkKey === 'arm64' ? 'active' : ''}" data-apk="arm64">
+                            <strong><i class="fa-solid fa-star" style="font-size:0.65rem; color:#F6C844;"></i> arm64-v8a</strong>
+                            <span>HP Modern 64-bit (2018+)</span>
+                        </button>
+                        <button type="button" class="apk-pill ${selectedAndroidApkKey === 'universal' ? 'active' : ''}" data-apk="universal">
+                            <strong><i class="fa-solid fa-cubes"></i> Universal</strong>
+                            <span>Semua Processor HP</span>
+                        </button>
+                        <button type="button" class="apk-pill ${selectedAndroidApkKey === 'armv7' ? 'active' : ''}" data-apk="armv7">
+                            <strong><i class="fa-solid fa-mobile"></i> armeabi-v7a</strong>
+                            <span>HP Lama / 32-bit</span>
+                        </button>
+                        <button type="button" class="apk-pill ${selectedAndroidApkKey === 'x86_64' ? 'active' : ''}" data-apk="x86_64">
+                            <strong><i class="fa-solid fa-laptop"></i> x86_64</strong>
+                            <span>Emulator PC / Intel</span>
+                        </button>
+                    </div>
+                </div>
+
+                <ul class="platform-features-list">
+                    <li><i class="fa-solid fa-circle-check"></i> <span>Dukungan Background Play & Notifikasi Musik</span></li>
+                    <li><i class="fa-solid fa-circle-check"></i> <span>Offline Caching & Lirik Karaoke Layar Penuh</span></li>
+                </ul>
+
+                <div class="platform-card-footer">
+                    ${activeAndroidAsset ? `
+                        <button type="button" class="btn-platform-download btn-android-main" data-download-url="${escapeHtml(activeAndroidAsset.browser_download_url)}" data-filename="${escapeHtml(activeAndroidAsset.name)}">
+                            <i class="fa-solid fa-download"></i>
+                            <span class="btn-text">Unduh ${escapeHtml(activeAndroidAsset.name)}</span>
+                        </button>
+                        <div class="platform-meta-info">
+                            <span><i class="fa-solid fa-hard-drive"></i> Ukuran: <strong>${formatBytes(activeAndroidAsset.size)}</strong></span>
+                            <span><i class="fa-solid fa-cloud-arrow-down"></i> ${activeAndroidAsset.download_count || 0} unduhan</span>
+                        </div>
+                    ` : `
+                        <a href="${release.html_url}" target="_blank" class="btn-platform-outline">
+                            <i class="fa-brands fa-github"></i> Unduh APK via GitHub
+                        </a>
+                        <div class="platform-meta-info">
+                            <span>APK sedang diproses di GitHub Actions</span>
+                        </div>
+                    `}
+
+                    <!-- Toggle Accordion Semua APK -->
+                    <div class="apk-accordion-toggle" id="toggle-all-apks">
+                        <i class="fa-solid fa-list"></i> Tampilkan Semua Tautan APK <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="all-apk-list" id="all-apk-list">
+                        ${renderAllApkItems(cat.android)}
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. KOTAK KHUSUS WINDOWS -->
+            <div class="platform-card windows-card" id="card-windows">
+                <div class="platform-card-header">
+                    <div class="platform-icon-wrap platform-icon-windows">
+                        <i class="fa-brands fa-windows"></i>
+                    </div>
+                    <span class="platform-badge badge-blue">Windows 10 / 11</span>
+                </div>
+
+                <div class="platform-title-area">
+                    <h3>Windows</h3>
+                    <p>Kompatibel dengan PC & Laptop Windows 10 dan Windows 11 (64-bit). Dilengkapi installer resmi Inno Setup.</p>
+                </div>
+
+                <ul class="platform-features-list" style="margin-top: 24px;">
+                    <li><i class="fa-solid fa-circle-check"></i> <span>Desktop & Start Menu Shortcut otomatis</span></li>
+                    <li><i class="fa-solid fa-circle-check"></i> <span>Integrasi Tombol Media Keyboard & Tray Audio</span></li>
+                    <li><i class="fa-solid fa-circle-check"></i> <span>Dukungan Discord Rich Presence & Last.fm</span></li>
+                </ul>
+
+                <div class="platform-card-footer">
+                    ${winAsset ? `
+                        <button type="button" class="btn-platform-download" data-download-url="${escapeHtml(winAsset.browser_download_url)}" data-filename="${escapeHtml(winAsset.name)}">
+                            <i class="fa-solid fa-download"></i>
+                            <span>Unduh ${escapeHtml(winAsset.name)}</span>
+                        </button>
+                        <div class="platform-meta-info">
+                            <span><i class="fa-solid fa-hard-drive"></i> Ukuran: <strong>${formatBytes(winAsset.size)}</strong></span>
+                            <span><i class="fa-solid fa-cloud-arrow-down"></i> ${winAsset.download_count || 0} unduhan</span>
+                        </div>
+                    ` : `
+                        <a href="https://github.com/${GITHUB_OWNER}/${GITHUB_REPO}/releases" target="_blank" class="btn-platform-outline">
+                            <i class="fa-brands fa-github"></i> Cek Installer Windows di GitHub
+                        </a>
+                        <div class="platform-meta-info">
+                            <span>Installer Windows (.exe)</span>
+                        </div>
+                    `}
+                </div>
+            </div>
+
+            <!-- 3. KOTAK KHUSUS LINUX -->
+            <div class="platform-card linux-card" id="card-linux">
+                <div class="platform-card-header">
+                    <div class="platform-icon-wrap platform-icon-linux">
+                        <i class="fa-brands fa-linux"></i>
+                    </div>
+                    <span class="platform-badge badge-gold">Linux x64</span>
+                </div>
+
+                <div class="platform-title-area">
+                    <h3>Linux</h3>
+                    <p>Kompatibel dengan Ubuntu, Debian, Arch Linux, Fedora, Manjaro, dan distro Linux modern (64-bit).</p>
+                </div>
+
+                <ul class="platform-features-list" style="margin-top: 24px;">
+                    <li><i class="fa-solid fa-circle-check"></i> <span>Format Bundle Arsip Standalone (.tar.gz)</span></li>
+                    <li><i class="fa-solid fa-circle-check"></i> <span>Dukungan Audio ALSA / PulseAudio / PipeWire</span></li>
+                    <li><i class="fa-solid fa-circle-check"></i> <span>Ekstrak arsip lalu jalankan binary <code>./streambeats</code></span></li>
+                </ul>
+
+                <div class="platform-card-footer">
+                    ${linuxAsset ? `
+                        <button type="button" class="btn-platform-download" data-download-url="${escapeHtml(linuxAsset.browser_download_url)}" data-filename="${escapeHtml(linuxAsset.name)}">
+                            <i class="fa-solid fa-download"></i>
+                            <span>Unduh ${escapeHtml(linuxAsset.name)}</span>
+                        </button>
+                        <div class="platform-meta-info">
+                            <span><i class="fa-solid fa-hard-drive"></i> Ukuran: <strong>${formatBytes(linuxAsset.size)}</strong></span>
+                            <span><i class="fa-solid fa-cloud-arrow-down"></i> ${linuxAsset.download_count || 0} unduhan</span>
+                        </div>
+                    ` : `
+                        <a href="https://github.com/${GITHUB_OWNER}/${GITHUB_REPO}/releases" target="_blank" class="btn-platform-outline">
+                            <i class="fa-brands fa-github"></i> Cek Arsip Linux di GitHub
+                        </a>
+                        <div class="platform-meta-info">
+                            <span>Paket Linux x64</span>
+                        </div>
+                    `}
+                </div>
+            </div>
+        </div>
+
+        <!-- Secondary Platforms Grid (macOS & iOS) -->
+        <div class="platform-cards-row-secondary">
+            
+            <!-- 4. KOTAK KHUSUS MACOS -->
+            <div class="platform-card macos-card" id="card-macos">
+                <div class="platform-card-header">
+                    <div class="platform-icon-wrap platform-icon-macos">
+                        <i class="fa-brands fa-apple"></i>
+                    </div>
+                    <span class="platform-badge">MacBook & iMac</span>
+                </div>
+
+                <div class="platform-title-area">
+                    <h3>macOS (MacBook)</h3>
+                    <p>Mendukung Apple Silicon (M1/M2/M3/M4) dan Mac Intel (macOS 11 Big Sur ke atas). Nikmati audio bebas iklan di Mac.</p>
+                </div>
+
+                <ul class="platform-features-list">
+                    <li><i class="fa-solid fa-circle-check"></i> <span>Akselerasi hardware penuh & UI tema dark elegan</span></li>
+                    <li><i class="fa-solid fa-circle-check"></i> <span>Tersedia via paket source Flutter atau rilis DMG</span></li>
+                </ul>
+
+                <div class="platform-card-footer">
+                    ${macAsset ? `
+                        <button type="button" class="btn-platform-download" data-download-url="${escapeHtml(macAsset.browser_download_url)}" data-filename="${escapeHtml(macAsset.name)}">
+                            <i class="fa-solid fa-download"></i> Unduh ${escapeHtml(macAsset.name)}
+                        </button>
+                    ` : `
+                        <a href="https://github.com/${GITHUB_OWNER}/${GITHUB_REPO}" target="_blank" class="btn-platform-outline">
+                            <i class="fa-brands fa-github"></i> Rilis macOS & Panduan Build
+                        </a>
+                    `}
+                    <div class="platform-meta-info">
+                        <span>Apple Silicon (ARM64) & Intel</span>
+                        <span>Official Repo</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. KOTAK KHUSUS IOS -->
+            <div class="platform-card ios-card" id="card-ios">
+                <div class="platform-card-header">
+                    <div class="platform-icon-wrap platform-icon-ios">
+                        <i class="fa-solid fa-mobile-screen"></i>
+                    </div>
+                    <span class="platform-badge">iPhone / iPad</span>
+                </div>
+
+                <div class="platform-title-area">
+                    <h3>iOS (iPhone & iPad)</h3>
+                    <p>Dukungan instalasi mandiri (Sideloading) tanpa jailbreak via AltStore, TrollStore, Scarlet, atau Sideloadly.</p>
+                </div>
+
+                <ul class="platform-features-list">
+                    <li><i class="fa-solid fa-circle-check"></i> <span>Kompatibel dengan iOS 15.0 hingga iOS 18+</span></li>
+                    <li><i class="fa-solid fa-circle-check"></i> <span>Audio streaming lancar, lirik offline, & zero tracker</span></li>
+                </ul>
+
+                <div class="platform-card-footer">
+                    ${iosAsset ? `
+                        <button type="button" class="btn-platform-download" data-download-url="${escapeHtml(iosAsset.browser_download_url)}" data-filename="${escapeHtml(iosAsset.name)}">
+                            <i class="fa-solid fa-download"></i> Unduh Paket IPA
+                        </button>
+                    ` : `
+                        <a href="https://whatsapp.com/channel/0029Vb8V2qh8V0tpL0VDky0M" target="_blank" class="btn-platform-outline">
+                            <i class="fa-brands fa-whatsapp"></i> Gabung Saluran Info Rilis iOS
+                        </a>
+                    `}
+                    <div class="platform-meta-info">
+                        <span>Sideload IPA / TestFlight</span>
+                        <span>Komunitas</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+
+    // Attach Event Listeners
+    attachCardListeners(cat);
+}
+
+function renderAllApkItems(androidCat) {
+    const items = [];
+    const mapping = [
+        { key: 'arm64', label: 'arm64-v8a (HP Modern 64-bit)', asset: androidCat.arm64 },
+        { key: 'universal', label: 'Universal (Semua Arsitektur)', asset: androidCat.universal },
+        { key: 'armv7', label: 'armeabi-v7a (HP Lama 32-bit)', asset: androidCat.armv7 },
+        { key: 'x86_64', label: 'x86_64 (Emulator PC & Intel)', asset: androidCat.x86_64 }
+    ];
+
+    mapping.forEach(m => {
+        if (m.asset) {
+            items.push(`
+                <div class="all-apk-item">
+                    <div>
+                        <strong>${escapeHtml(m.label)}</strong>
+                        <div style="font-size:0.7rem; color:#8E8E93;">${escapeHtml(m.asset.name)} • ${formatBytes(m.asset.size)}</div>
+                    </div>
+                    <button type="button" class="btn-small btn-primary trigger-dl" data-download-url="${escapeHtml(m.asset.browser_download_url)}" data-filename="${escapeHtml(m.asset.name)}">
+                        <i class="fa-solid fa-download"></i> Unduh
+                    </button>
+                </div>
+            `);
+        }
+    });
+
+    if (androidCat.others && androidCat.others.length > 0) {
+        androidCat.others.forEach(asset => {
+            items.push(`
+                <div class="all-apk-item">
+                    <div>
+                        <strong>${escapeHtml(asset.name)}</strong>
+                        <div style="font-size:0.7rem; color:#8E8E93;">${formatBytes(asset.size)}</div>
+                    </div>
+                    <button type="button" class="btn-small btn-primary trigger-dl" data-download-url="${escapeHtml(asset.browser_download_url)}" data-filename="${escapeHtml(asset.name)}">
+                        <i class="fa-solid fa-download"></i> Unduh
+                    </button>
+                </div>
+            `);
+        });
+    }
+
+    return items.join('');
+}
+
+function attachCardListeners(cat) {
+    // 1. Download Buttons Listener
+    const buttons = document.querySelectorAll('[data-download-url]');
+    buttons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const url = btn.getAttribute('data-download-url');
+            const filename = btn.getAttribute('data-filename');
+            triggerDownload(url, filename);
+        });
+    });
+
+    // 2. APK Pills Selector Listener
+    const pills = document.querySelectorAll('.apk-pill');
+    pills.forEach(pill => {
+        pill.addEventListener('click', (e) => {
+            e.preventDefault();
+            const apkKey = pill.getAttribute('data-apk');
+            selectedAndroidApkKey = apkKey;
+
+            // Update active state on pills
+            pills.forEach(p => p.classList.remove('active'));
+            pill.classList.add('active');
+
+            // Update main Android button & badge
+            const targetAsset = cat.android[apkKey];
+            const mainBtn = document.querySelector('.btn-android-main');
+            const badge = document.getElementById('selected-apk-badge');
+
+            const labelMap = {
+                arm64: '64-bit (Modern)',
+                universal: 'Universal (Semua HP)',
+                armv7: '32-bit (HP Lama)',
+                x86_64: 'x86_64 (Emulator)'
+            };
+
+            if (badge) badge.textContent = labelMap[apkKey] || apkKey;
+
+            if (mainBtn && targetAsset) {
+                mainBtn.setAttribute('data-download-url', targetAsset.browser_download_url);
+                mainBtn.setAttribute('data-filename', targetAsset.name);
+                const textElem = mainBtn.querySelector('.btn-text');
+                if (textElem) {
+                    textElem.textContent = `Unduh ${targetAsset.name}`;
+                }
+                const metaArea = mainBtn.nextElementSibling;
+                if (metaArea && metaArea.classList.contains('platform-meta-info')) {
+                    metaArea.innerHTML = `
+                        <span><i class="fa-solid fa-hard-drive"></i> Ukuran: <strong>${formatBytes(targetAsset.size)}</strong></span>
+                        <span><i class="fa-solid fa-cloud-arrow-down"></i> ${targetAsset.download_count || 0} unduhan</span>
+                    `;
+                }
+            }
+        });
+    });
+
+    // 3. Toggle All APKs Accordion
+    const toggleBtn = document.getElementById('toggle-all-apks');
+    const apkList = document.getElementById('all-apk-list');
+    if (toggleBtn && apkList) {
+        toggleBtn.addEventListener('click', () => {
+            const isShown = apkList.classList.toggle('show');
+            toggleBtn.innerHTML = isShown
+                ? `<i class="fa-solid fa-list"></i> Sembunyikan Varian APK <i class="fa-solid fa-chevron-up"></i>`
+                : `<i class="fa-solid fa-list"></i> Tampilkan Semua Tautan APK <i class="fa-solid fa-chevron-down"></i>`;
+        });
+    }
+}
+
+function escapeHtml(str) {
+    if (!str) return '';
+    return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+}
+
+// ============================================================
+// FETCH RELEASES FROM GITHUB API
+// ============================================================
+
+async function fetchReleases() {
+    const dropdown = document.getElementById('release-dropdown');
+    const container = document.getElementById('release-assets');
+    if (!dropdown || !container) return;
+
+    container.innerHTML = `
+        <div class="loading-state">
+            <div class="loading-spinner"></div>
+            <div>Menghubungkan ke GitHub API & memuat daftar rilis terbaru...</div>
+        </div>
+    `;
+
+    try {
+        const response = await fetch(`${GITHUB_API}?per_page=20`, {
+            headers: { 'Accept': 'application/vnd.github.v3+json' }
+        });
+
+        if (!response.ok) {
+            throw new Error(`GitHub API Error: ${response.status} ${response.statusText}`);
+        }
+
+        allReleases = await response.json();
+
+        if (!allReleases || allReleases.length === 0) {
+            container.innerHTML = `
+                <div class="error-state">
+                    <p>Tidak ditemukan rilis di repositori ini.</p>
+                </div>
+            `;
+            return;
+        }
+
+        // Calculate Total Downloads
+        let totalApiDownloads = 0;
+        allReleases.forEach(rel => {
+            if (rel.assets && Array.isArray(rel.assets)) {
+                rel.assets.forEach(a => {
+                    totalApiDownloads += (a.download_count || 0);
+                });
+            }
+        });
+
+        const localDl = parseInt(localStorage.getItem('sb_web_downloads') || '0', 10);
+        const grandTotal = BASE_DOWNLOADS_COUNT + totalApiDownloads + localDl;
+
+        const countElem = document.getElementById('total-downloads-count');
+        if (countElem) {
+            countElem.textContent = grandTotal.toLocaleString('id-ID');
+        }
+
+        const subtitleElem = document.getElementById('download-stats-subtitle');
+        if (subtitleElem) {
+            subtitleElem.textContent = `Platform Utama ${BASE_DOWNLOADS_COUNT.toLocaleString('id-ID')} + Unduhan Web ${(totalApiDownloads + localDl).toLocaleString('id-ID')}`;
+        }
+
+        const latestVersionText = document.getElementById('latest-version-text');
+        if (latestVersionText && allReleases[0]) {
+            latestVersionText.textContent = allReleases[0].tag_name || allReleases[0].name || 'v3.2.6';
+        }
+
+        // Populate Dropdown
+        dropdown.innerHTML = '';
+        allReleases.forEach((rel, idx) => {
+            const opt = document.createElement('option');
+            opt.value = idx;
+            const tagName = rel.tag_name || rel.name || `Release ${idx + 1}`;
+            const isLatest = idx === 0;
+            const isPre = !!rel.prerelease;
+
+            let label = tagName;
+            if (isLatest && !isPre) label += '  ✅ Rilis Terbaru (Stabil)';
+            else if (isPre) label += '  ⚠️ Pre-release';
+
+            opt.textContent = label;
+            dropdown.appendChild(opt);
+        });
+
+        dropdown.addEventListener('change', () => {
+            renderRelease(parseInt(dropdown.value, 10));
+        });
+
+        // Initial Render Latest
+        renderRelease(0);
+
+    } catch (err) {
+        console.error('Failed to fetch releases:', err);
+        dropdown.innerHTML = `<option>Gagal memuat rilis GitHub</option>`;
+        container.innerHTML = `
+            <div class="error-state">
+                <p>Gagal memuat daftar rilis dari GitHub (${escapeHtml(err.message)}).</p>
+                <p style="margin-top:8px;">Silakan unduh langsung dari halaman resmi: <a href="https://github.com/${GITHUB_OWNER}/${GITHUB_REPO}/releases" target="_blank"><strong>GitHub Releases →</strong></a></p>
+            </div>
+        `;
+    }
+}
+
+// ============================================================
+// PETALS ANIMATION & NAVIGATION
+// ============================================================
+
+function createPetals() {
+    const container = document.getElementById('petals-container');
+    if (!container) return;
+
+    const count = 18;
+    for (let i = 0; i < count; i++) {
+        setTimeout(() => {
+            const petal = document.createElement('div');
+            petal.classList.add('petal');
+            const left = Math.random() * 100;
+            const size = Math.random() * 8 + 6;
+            const duration = Math.random() * 10 + 10;
+            const delay = Math.random() * 10;
+
+            petal.style.left = `${left}vw`;
+            petal.style.width = `${size}px`;
+            petal.style.height = `${size}px`;
+            petal.style.animationDuration = `${duration}s`;
+            petal.style.animationDelay = `${delay}s`;
+
+            container.appendChild(petal);
+        }, i * 250);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Mobile navigation toggle
+    const mobileBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (mobileBtn && navLinks) {
+        mobileBtn.addEventListener('click', () => {
+            if (navLinks.style.display === 'flex') {
+                navLinks.style.display = 'none';
+            } else {
+                navLinks.style.display = 'flex';
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '100%';
+                navLinks.style.left = '0';
+                navLinks.style.width = '100%';
+                navLinks.style.backgroundColor = 'rgba(10, 10, 12, 0.98)';
+                navLinks.style.padding = '20px';
+                navLinks.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.5)';
+            }
+        });
+    }
+
+    // Smooth scroll for nav anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (!href || href === '#') return;
+            const target = document.querySelector(href);
+            if (target) {
+                e.preventDefault();
+                window.scrollTo({
+                    top: target.offsetTop - 60,
+                    behavior: 'smooth'
+                });
+                if (window.innerWidth <= 900 && navLinks) {
+                    navLinks.style.display = 'none';
+                }
+            }
+        });
+    });
+
+    createPetals();
+    fetchReleases();
+});
