@@ -421,8 +421,13 @@ function renderRelease(index) {
                         </a>
                     `}
                     <div class="platform-meta-info">
-                        <span>Apple Silicon (ARM64) & Intel</span>
-                        <span>Official Repo</span>
+                        ${macAsset ? `
+                            <span><i class="fa-solid fa-hard-drive"></i> Ukuran: <strong>${formatBytes(macAsset.size)}</strong></span>
+                            <span><i class="fa-solid fa-cloud-arrow-down"></i> ${macAsset.download_count || 0} unduhan</span>
+                        ` : `
+                            <span>Apple Silicon (ARM64) & Intel</span>
+                            <span>Official Build</span>
+                        `}
                     </div>
                 </div>
             </div>
@@ -449,7 +454,7 @@ function renderRelease(index) {
                 <div class="platform-card-footer">
                     ${iosAsset ? `
                         <button type="button" class="btn-platform-download" data-download-url="${escapeHtml(iosAsset.browser_download_url)}" data-filename="${escapeHtml(iosAsset.name)}">
-                            <i class="fa-solid fa-download"></i> Unduh Paket IPA
+                            <i class="fa-solid fa-download"></i> Unduh ${escapeHtml(iosAsset.name)}
                         </button>
                     ` : `
                         <a href="https://whatsapp.com/channel/0029Vb8V2qh8V0tpL0VDky0M" target="_blank" class="btn-platform-outline">
@@ -457,8 +462,13 @@ function renderRelease(index) {
                         </a>
                     `}
                     <div class="platform-meta-info">
-                        <span>Sideload IPA / TestFlight</span>
-                        <span>Komunitas</span>
+                        ${iosAsset ? `
+                            <span><i class="fa-solid fa-hard-drive"></i> Ukuran: <strong>${formatBytes(iosAsset.size)}</strong></span>
+                            <span><i class="fa-solid fa-cloud-arrow-down"></i> ${iosAsset.download_count || 0} unduhan</span>
+                        ` : `
+                            <span>Sideload IPA / TestFlight</span>
+                            <span>Komunitas</span>
+                        `}
                     </div>
                 </div>
             </div>
