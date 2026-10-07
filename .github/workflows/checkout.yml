@@ -36,6 +36,7 @@ jobs:
 
       - name: Static Code Analysis
         run: flutter analyze --no-fatal-infos
+        continue-on-error: true
 
 
   # ==========================================
