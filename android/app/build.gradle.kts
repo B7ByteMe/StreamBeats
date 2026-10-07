@@ -26,11 +26,8 @@ android {
     }
 
     defaultConfig {
-        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId = "ls.streambeats.musicplayer"
-        // You can update the following values to match your application needs.
-        // For more information, see: https://flutter.dev/to/review-gradle-config.
-        minSdk = flutter.minSdkVersion
+        minSdk = 21
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
@@ -50,6 +47,10 @@ android {
     }
 
     signingConfigs {
+        getByName("debug") {
+            enableV1Signing = true
+            enableV2Signing = true
+        }
         if (keystorePropertiesFile.exists()) {
             println("   ✅ key.properties found - configuring release signing")
             val keystoreProperties = Properties()
@@ -72,7 +73,9 @@ android {
                 keyPassword = keystoreProperties["keyPassword"] as String?
                 storeFile = rootProject.file(keystoreProperties["storeFile"] as String)
                 storePassword = keystoreProperties["storePassword"] as String?
-                println("   ✅ Release signing config created successfully")
+                enableV1Signing = true
+                enableV2Signing = true
+                println("   ✅ Release signing config created successfully with V1 & V2 signing")
             }
         } else {
             println("   ❌ key.properties not found - using debug signing")
